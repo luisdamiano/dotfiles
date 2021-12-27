@@ -31,7 +31,7 @@ eout() { emacs $1 & disown; }
 ## Pacman
 alias pacmans='sudo pacman -Syu'
 ## https://wiki.archlinux.org/index.php/Pacman#Removing_packages
-alias pacmanr='sudo pacman -Rsc'
+alias pacmanr='sudo pacman -Rscn'
 ## https://wiki.archlinux.org/index.php/Pacman/Tips_and_tricks#List_of_installed_packages
 alias pacmanq='pacman -Qte'
 
