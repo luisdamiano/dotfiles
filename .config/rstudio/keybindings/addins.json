@@ -1,0 +1,4 @@
+{
+    "lintr::addin_lint_package": "Alt+Shift+L",
+    "AlignAssign::alignAssign": "Ctrl+Shift+Z"
+}
