@@ -7,6 +7,9 @@
 
 # Formatting -------------------------------------------------------------------
 PS1='[\u@\h \W]\$ '
+export TERMINAL='/usr/bin/termite'
+export VISUAL='emacs'
+export EDITOR='emacs'
 
 # Aliases ----------------------------------------------------------------------
 ## Cli defaults
