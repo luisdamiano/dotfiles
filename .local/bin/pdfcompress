@@ -1,0 +1,1 @@
+gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/${2:-printer} -sOutputFile="${1/.pdf/_compressed.pdf}" "${1}"

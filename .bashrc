@@ -26,7 +26,10 @@ alias xpaste="xclip -selection clipboard -o"
 ## Applications
 alias R="R --quiet --no-restore --no-save"
 alias n2="dvtm nnn nnn"
+
+magit() { emacs -nw -f magit-status -f fit-window-to-buffer }
 eout() { emacs $1 & disown; }
+tout() { termite -d $(pwd) & }
 
 ## Pacman
 alias pacmans='sudo pacman -Syu'

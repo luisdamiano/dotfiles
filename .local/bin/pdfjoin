@@ -1,0 +1,3 @@
+# https://askubuntu.com/a/257170
+echo $@
+gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dAutoRotatePages=/None -sOutputFile=joined_document.pdf $@
