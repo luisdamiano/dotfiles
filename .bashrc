@@ -38,7 +38,7 @@ alias makepkgsi='makepkg --clean --cleanbuild --install --log --syncdeps --rmdep
 # Dot file tracking
 ## https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
 ## https://news.ycombinator.com/item?id=11071754
-alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Autocomplete
 complete -cf sudo # https://bbs.archlinux.org/viewtopic.php?id=45613
