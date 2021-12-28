@@ -1,11 +1,11 @@
 echo "List 25 (individually) largest packages"
-LC_ALL=C pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -h | tail -n 25 
+LC_ALL=C pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print "  " $4$5, name}' | sort -h | tail -n 25 
 
 echo "List all modified /etc files"
-pacman -Qii | awk '/^MODIFIED/ {print $2}'
+pacman -Qii | awk '/^MODIFIED/ {print "  " $2}'
 
 echo "List all stray files (not owned by any package)"
-find /etc /usr /opt | LC_ALL=C pacman -Qqo - 2>&1 >&- >/dev/null | cut -d ' ' -f 5-
+sudo find /etc /usr /opt | LC_ALL=C pacman -Qqo - 2>&1 >&- >/dev/null | cut -d ' ' -f 5-
 
 echo "List all ghost files (unowned files crated by packages)"
 sudo pacreport --unowned-files 
@@ -14,7 +14,7 @@ echo "List of orphan packages"
 pacman -Qtd
 
 echo "Recursively remove orphans"
-pacman -Qtdq | pacman -Rns -
+pacman -Qtdq | sudo pacman -Rns -
 
 echo "List of foreign packages"
 pacman -Qm
@@ -24,4 +24,3 @@ paccache -rk1
 
 echo "Clean cache, remove all uninstalled packages"
 paccache -ruk0
-
