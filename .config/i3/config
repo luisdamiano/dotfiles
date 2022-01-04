@@ -166,19 +166,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Custom settings
-# Dracula theme
-# https://github.com/dracula/i3/blob/master/.config/i3/config
-# class                 border  bground text    indicator child_border
-client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
-
-client.background       #F8F8F2
-
-# Bindings -----------------------------------------------------------
+# Custom bindings ----------------------------------------------------
 # Screenshots
 # https://www.reddit.com/r/i3wm/comments/65vis5/screenshot_commands_from_my_i3_config/
 bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/pictures/screenshots && mv $f ~/pictures/screenshots && xclip -selection clipboard -t image/png -i ~/pictures/screenshots/`ls -1 -t ~/pictures/screenshots | head -1`' # All screens
@@ -198,54 +186,6 @@ bindsym $mod+Shift+m swap container with mark swapee
 
 # bindsym $mod+d exec "dmenu_run"
 bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10'"
-
-# Start up -----------------------------------------------------------
-# Redshift
-exec --no-startup-id "redshift"
-
-# Teams
-# exec --no-startup-id "teams"
-
-# Browser
-exec --no-startup-id "chromium"
-
-# Polybar
-exec --no-startup-id $HOME/.config/polybar/launch.sh
-
-# Always start the day with a sane volume level :)
-exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 20% && killall -SIGUSR1 i3status
-
-# Check for updates
-exec --no-startup-id termite --hold -e checkupdates
-
-# Launchers ----------------------------------------------------------
-
-# TODO
-set $em_daemon emacsclient
-set $mode_launcher [`] kbase [1] Chromium [2] RStudio [r] R [z] Zotero
-bindsym Mod4+grave mode "$mode_launcher"; bar hidden_state show``
-
-mode --pango_markup "$mode_launcher" {
-    set $E  exec --no-startup-id
-    set $T  exec --no-startup-id termite
-
-    bindsym grave $T -d "$HOME/research/kbase" ; mode "default"
-    bindsym 1 $E chromium                                       ; mode "default"
-    bindsym 2 $E rstudio-daily-bin                              ; mode "default"
-
-    bindsym r $T -e "R" -d "/tmp"                               ; mode "default"
-    bindsym z $E zotero                                         ; mode "default"
-
-    # config files
-    bindsym F1  $T -e "$em_daemon ~/.bashrc"                    ; mode "default"
-    bindsym F2  $T -e "$em_daemon ~/.config/emacs/init.el"      ; mode "default"
-    bindsym F3  $T -e "$em_daemon ~/.config/i3/config"          ; mode "default"
-    # bindsym F12 $T --hold -e "source ~/.bashrc & dit status"    ; mode "default"
-
-    bindsym Escape                                              ; mode "default"
-    bindsym Return                                              ; mode "default"
-    bindsym Mod4+grave                                          ; mode "default"
-}
 
 # Put workspaces on specific screens -------------------------------------------
 ## See xrandr --current
@@ -268,3 +208,62 @@ assign [class="^Zotero$"] "4"
 # Other settings -----------------------------------------------------
 for_window [class="Microsoft Teams - Preview"] move to workspace $ws10
 for_window [class="discord"] move to workspace $ws10
+
+# Start up -----------------------------------------------------------
+# Redshift
+exec --no-startup-id "redshift"
+
+# Teams
+# exec --no-startup-id "teams"
+
+# Browser
+exec --no-startup-id "chromium"
+
+# Polybar
+exec --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Always start the day with a sane volume level :)
+exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 20% && killall -SIGUSR1 i3status
+
+# Check for updates
+exec --no-startup-id termite --hold -e checkupdates
+
+# Launcher ----------------------------------------------------------
+set $mode_launcher [`] kbase [1] Chromium [2] RStudio [r] R [z] Zotero [F1] bashrc [F2] init.el [F3] i3 [F12] dotfiles
+bindsym Mod4+grave mode "$mode_launcher"; bar hidden_state show``
+
+mode --pango_markup "$mode_launcher" {
+    set $EC exec --no-startup-id emacsclient --create-frame
+    set $E  exec --no-startup-id
+    set $T  exec --no-startup-id termite
+
+    # apps
+    bindsym grave $EC "$HOME/research/kbase/_index.org"         ; mode "default"
+    bindsym 1 $E chromium                                       ; mode "default"
+    bindsym 2 $E rstudio-daily-bin                              ; mode "default"
+
+    bindsym r $T -e "R" -d "/tmp"                               ; mode "default"
+    bindsym z $E zotero                                         ; mode "default"
+
+    # config files
+    bindsym F1  $EC "~/.bashrc"                                 ; mode "default"
+    bindsym F2  $EC "~/.config/emacs/init.el"                   ; mode "default"
+    bindsym F3  $EC "~/.config/i3/config"                       ; mode "default"
+    bindsym F12 exec emacs -e "madit-status"                    ; mode "default"
+    
+    bindsym Escape                                              ; mode "default"
+    bindsym Return                                              ; mode "default"
+    bindsym Mod4+grave                                          ; mode "default"
+}
+
+# Theme ------------------------------------------------------------------------
+## Dracula theme
+## https://github.com/dracula/i3/blob/master/.config/i3/config
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.background       #F8F8F2
