@@ -28,6 +28,7 @@ alias R="R --quiet --no-restore --no-save"
 alias n2="dvtm nnn nnn"
 
 magit() { emacs -nw -f magit-status -f fit-window-to-buffer $1; }
+madit() { emacs -nw -f madit-status -f fit-window-to-buffer $1; }
 eout() { emacs $1 & disown; }
 tout() { termite -d $(pwd) & disown; }
 

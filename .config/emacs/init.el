@@ -285,6 +285,21 @@
   magit-log-margin-width t 24))
   :config (setq magit-log-section-commit-count 25) )
 
+(defun madit-status() (interactive)
+       (defun magit-dit-filter (env)
+         "Add GIT_DIR and GIT_WORK_TREE to ENV when in a special directory.
+https://github.com/magit/magit/issues/460 (@cpitclaudel)."
+         (let ((home (expand-file-name "~/")))
+           (let ((gitdir (expand-file-name "~/.dotfiles/")))
+             (push (format "GIT_WORK_TREE=%s" home) env)
+             (push (format "GIT_DIR=%s" gitdir) env)))
+         env)
+
+       (advice-add 'magit-process-environment
+                   :filter-return 'magit-dit-filter)
+       (magit-status)
+       )
+
 ;; gitignore settings ----------------------------------------------------------
 (use-package gitignore-mode)
 
