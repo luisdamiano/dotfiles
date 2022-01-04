@@ -40,7 +40,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -221,20 +221,49 @@ exec --no-startup-id termite --hold -e checkupdates
 # Launchers ----------------------------------------------------------
 
 # TODO
-set $mode_launcher Launch: [1] Chromium [2] RStudio IDE [f] Firefox [n] n2
+set $em_daemon emacsclient
+set $mode_launcher [`] kbase [1] Chromium [2] RStudio [r] R [z] Zotero
 bindsym Mod4+grave mode "$mode_launcher"; bar hidden_state show``
 
 mode --pango_markup "$mode_launcher" {
-    bindsym 1 exec chromium, mode "default"
-    bindsym 2 exec rstudio-daily-bin, mode "default"
+    set $E  exec --no-startup-id
+    set $T  exec --no-startup-id termite
 
-    bindsym f exec firefox, mode "default"
-    bindsym n exec --no-startup-id termite -e "dvtm nnn nnn", mode "default"
+    bindsym grave $T -d "$HOME/research/kbase" ; mode "default"
+    bindsym 1 $E chromium                                       ; mode "default"
+    bindsym 2 $E rstudio-daily-bin                              ; mode "default"
 
-    bindsym Escape mode "default"
-    bindsym Return mode "default"
-    bindsym Mod4+grave mode "default"
+    bindsym r $T -e "R" -d "/tmp"                               ; mode "default"
+    bindsym z $E zotero                                         ; mode "default"
+
+    # config files
+    bindsym F1  $T -e "$em_daemon ~/.bashrc"                    ; mode "default"
+    bindsym F2  $T -e "$em_daemon ~/.config/emacs/init.el"      ; mode "default"
+    bindsym F3  $T -e "$em_daemon ~/.config/i3/config"          ; mode "default"
+    # bindsym F12 $T --hold -e "source ~/.bashrc & dit status"    ; mode "default"
+
+    bindsym Escape                                              ; mode "default"
+    bindsym Return                                              ; mode "default"
+    bindsym Mod4+grave                                          ; mode "default"
 }
+
+# Put workspaces on specific screens -------------------------------------------
+## See xrandr --current
+workspace  "1" output DP-1
+workspace  "4" output DP-1
+workspace  "7" output DP-1
+
+workspace  "2" output DP-2
+workspace  "5" output DP-2
+workspace  "8" output DP-2
+workspace "10" output DP-2
+
+workspace  "3" output DP-3
+workspace  "6" output DP-3
+workspace  "9" output DP-3
+
+# Put clients on specific workspaces -------------------------------------------
+assign [class="^Zotero$"] "4"
 
 # Other settings -----------------------------------------------------
 for_window [class="Microsoft Teams - Preview"] move to workspace $ws10
