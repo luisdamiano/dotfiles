@@ -2,6 +2,7 @@
 text/plain=mousepad.desktop;emacs.desktop;
 application/pdf=chromium.desktop;libreoffice-draw.desktop;org.inkscape.Inkscape.desktop;gimp.desktop;
 text/html=chromium.desktop;
+text/x-matlab=org.xfce.mousepad.desktop;
 
 [Default Applications]
 x-scheme-handler/msteams=teams.desktop
