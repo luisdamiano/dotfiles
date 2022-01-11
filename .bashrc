@@ -27,7 +27,7 @@ alias xpaste="xclip -selection clipboard -o"
 alias R="R --quiet --no-restore --no-save"
 alias n2="dvtm nnn nnn"
 
-magit() { emacs -nw -f magit-status -f fit-window-to-buffer $1; }
+magit() { emacsclient -nw -e '(progn (magit-status)(delete-other-windows))'; }
 madit() { emacs -nw -f madit-status -f fit-window-to-buffer $1; }
 eout() { emacs $1 & disown; }
 tout() { termite -d $(pwd) & disown; }
