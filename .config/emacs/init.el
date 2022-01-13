@@ -306,14 +306,11 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 ;; Org settings ----------------------------------------------------------------
 (setq org-support-shift-select 'always)
 
-; Export html when hitting F9
+;; export html when hitting F9
 (add-hook 'org-mode-hook
 	  (lambda() (local-set-key (kbd "<f9>") 'org-html-export-to-html)))
 
-; (eval-after-load 'org-mode
-;  '(define-key org-mode-map (kbd "<f9>") 'org-html-export-to-html))
-
-; support code block syntax highlighting in html files
+;; support code block syntax highlighting in html files
 (use-package htmlize)
 
 ;; Markdown settings------------------------------------------------------------
