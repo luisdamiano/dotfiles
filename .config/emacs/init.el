@@ -310,6 +310,10 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 (add-hook 'org-mode-hook
 	  (lambda() (local-set-key (kbd "<f9>") 'org-html-export-to-html)))
 
+;; insert link from clipboard with sensible description
+(use-package org-cliplink
+  :bind ("C-x p" . org-cliplink))
+
 ;; support code block syntax highlighting in html files
 (use-package htmlize)
 
