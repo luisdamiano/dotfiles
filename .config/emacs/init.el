@@ -347,6 +347,14 @@ background of code to whatever theme I'm using's background"
 ;; Shell settings---------------------------------------------------------------
 ;; shellcheck maybe?
 
+;; PDF settings ----------------------------------------------------------------
+;; https://github.com/jwiegley/use-package/blob/a7422fb8ab1baee19adb2717b5b47b9c3812a84c/README.md#magic-handlers
+(use-package pdf-tools
+  :load-path "site-lisp/pdf-tools/lisp"
+  :magic ("%PDF" . pdf-view-mode)
+  :config
+  (pdf-tools-install :no-query))
+
 ;; LaTeX settings --------------------------------------------------------------
 ;; Latex Mode https://tex.stackexchange.com/a/209509
 (defun my-LaTeX-mode()
@@ -509,7 +517,7 @@ background of code to whatever theme I'm using's background"
  '(esup-depth 0)
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
+   '(org-cliplink wc-mode helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
  '(save-place-mode t)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
