@@ -42,8 +42,7 @@
 (unless (file-exists-p emacs-autosave-directory)
     (make-directory emacs-autosave-directory))
 
-(setq auto-save-file-name-transforms `((".*"
-					,emacs-autosave-directory t)))
+(setq auto-save-file-name-transforms `((".*" ,emacs-autosave-directory t)))
 
 (setq auto-save-timeout 20
       auto-save-interval 20)
@@ -86,9 +85,9 @@
 ;; Removes *Completions* from buffer after you've opened a file.
 (add-hook 'minibuffer-exit-hook
       '(lambda ()
-         (let ((buffer "*Completions*"))
-           (and (get-buffer buffer)
-                (kill-buffer buffer)))))
+	 (let ((buffer "*Completions*"))
+	   (and (get-buffer buffer)
+		(kill-buffer buffer)))))
 
 ;; Don't show *Buffer list* when opening multiple files at the same time.
 (setq inhibit-startup-buffer-menu t)
@@ -300,16 +299,16 @@
 
 (defun madit-status() (interactive)
        (defun magit-dit-filter (env)
-         "Add GIT_DIR and GIT_WORK_TREE to ENV when in a special directory.
+	 "Add GIT_DIR and GIT_WORK_TREE to ENV when in a special directory.
 https://github.com/magit/magit/issues/460 (@cpitclaudel)."
-         (let ((home (expand-file-name "~/")))
-           (let ((gitdir (expand-file-name "~/.dotfiles/")))
-             (push (format "GIT_WORK_TREE=%s" home) env)
-             (push (format "GIT_DIR=%s" gitdir) env)))
-         env)
+	 (let ((home (expand-file-name "~/")))
+	   (let ((gitdir (expand-file-name "~/.dotfiles/")))
+	     (push (format "GIT_WORK_TREE=%s" home) env)
+	     (push (format "GIT_DIR=%s" gitdir) env)))
+	 env)
 
        (advice-add 'magit-process-environment
-                   :filter-return 'magit-dit-filter)
+		   :filter-return 'magit-dit-filter)
        (magit-status)
        )
 
@@ -337,13 +336,13 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 background of code to whatever theme I'm using's background"
   (when (eq exporter 'html)
     (let* ((my-pre-bg (face-background 'default))
-           (my-pre-fg (face-foreground 'default)))
+	   (my-pre-fg (face-foreground 'default)))
       (setq
        org-html-head-extra
        (concat
-        org-html-head-extra
-        (format "<style type=\"text/css\">\n pre.src {background-color: %s; color: %s;}</style>\n"
-                my-pre-bg my-pre-fg))))))
+	org-html-head-extra
+	(format "<style type=\"text/css\">\n pre.src {background-color: %s; color: %s;}</style>\n"
+		my-pre-bg my-pre-fg))))))
 
 (add-hook 'org-export-before-processing-hook 'my/org-inline-css-hook)
 
@@ -384,15 +383,15 @@ background of code to whatever theme I'm using's background"
 ;; AucTeX settings -------------------------------------------------------------
 ;; (use-package auctex
 ;;   :custom ((TeX-auto-save t)
-;; 	   (TeX-parse-self t)
-;; 	   (TeX-master nil)
-;; 	   (reftex-plug-into-auctex t)
-;; 	   (font-latex-fontify-script nil))
+;;         (TeX-parse-self t)
+;;         (TeX-master nil)
+;;         (reftex-plug-into-auctex t)
+;;         (font-latex-fontify-script nil))
 ;;   :hook ((LaTeX-mode . my-LaTeX-mode)
-;; 	 (LaTeX-mode . flyspell-mode)
-;; 	 (LaTeX-mode . LaTeX-math-mode)
-;; 	 (LaTeX-mode . turn-on-reftex)
-;; 	 (LaTeX-mode . rainbow-delimiters-mode))
+;;       (LaTeX-mode . flyspell-mode)
+;;       (LaTeX-mode . LaTeX-math-mode)
+;;       (LaTeX-mode . turn-on-reftex)
+;;       (LaTeX-mode . rainbow-delimiters-mode))
 ;;   )
 
 (use-package tex
@@ -402,12 +401,12 @@ background of code to whatever theme I'm using's background"
 	   (TeX-master nil)
 	   (reftex-plug-into-auctex t)
 	   (font-latex-fontify-script nil)
-           (LaTeX-electric-left-right-brace t)
-           )
+	   (LaTeX-electric-left-right-brace t)
+	   )
   :hook ((LaTeX-mode . my-LaTeX-mode)
 	 (LaTeX-mode . flyspell-mode)
 	 (LaTeX-mode . LaTeX-math-mode)
-         (LaTeX-mode . TeX-fold-mode)
+	 (LaTeX-mode . TeX-fold-mode)
 	 (LaTeX-mode . turn-on-reftex)
 	 (LaTeX-mode . rainbow-delimiters-mode))
 )
@@ -421,15 +420,15 @@ background of code to whatever theme I'm using's background"
 ;; https://github.com/vspinu/polymode
 (use-package polymode
   :diminish (poly-org-mode
-             poly-markdown-mode
-             poly-noweb+r-mode
-             poly-noweb+r-mode
-             poly-markdown+r-mode
-             poly-rapport-mode
-             poly-html+r-mode
-             poly-brew+r-mode
-             poly-r+c++-mode
-             poly-c++r-mode)
+	     poly-markdown-mode
+	     poly-noweb+r-mode
+	     poly-noweb+r-mode
+	     poly-markdown+r-mode
+	     poly-rapport-mode
+	     poly-html+r-mode
+	     poly-brew+r-mode
+	     poly-r+c++-mode
+	     poly-c++r-mode)
 ;  :init
 ;  (require 'poly-R)
 ;  (require 'poly-markdown)
@@ -455,42 +454,42 @@ background of code to whatever theme I'm using's background"
 	     (display-buffer-reuse-window display-buffer-in-direction)
 	     (inhibit-same-window . nil)
 	     (direction . left)
-             (window-width . 0.33)
-             (window-height . 1.00)
+	     (window-width . 0.33)
+	     (window-height . 1.00)
 	     (dedicated . nil)
-             (reusable-frames . nil))
+	     (reusable-frames . nil))
 	    ("^\\*R Dired" ; File list window
-             (display-buffer-reuse-window display-buffer-in-side-window)
-             (side . right)
-             (window-width . 0.33)
-             (window-height . 0.33)
+	     (display-buffer-reuse-window display-buffer-in-side-window)
+	     (side . right)
+	     (window-width . 0.33)
+	     (window-height . 0.33)
 	     (dedicated . t)
-             (slot . 2)
-             (reusable-frames . nil))
+	     (slot . 2)
+	     (reusable-frames . nil))
 	    ("^magit" ; Magit
-             (display-buffer-reuse-window display-buffer-in-side-window)
-             (side . right)
-             (window-width . 0.33)
-             (window-height . 0.33)
+	     (display-buffer-reuse-window display-buffer-in-side-window)
+	     (side . right)
+	     (window-width . 0.33)
+	     (window-height . 0.33)
 	     (dedicated . t)
-             (slot . 2)
-             (reusable-frames . nil))
-            ("^\\*R" ; R process window
-             (display-buffer-reuse-window display-buffer-in-side-window)
-             (side . right)
-             (window-width . 0.33)
-             (window-height . 0.33)
-             (dedicated . t)
+	     (slot . 2)
+	     (reusable-frames . nil))
+	    ("^\\*R" ; R process window
+	     (display-buffer-reuse-window display-buffer-in-side-window)
+	     (side . right)
+	     (window-width . 0.33)
+	     (window-height . 0.33)
+	     (dedicated . t)
 	     (slot . 0)
 	     (reusable-frames . nil))
-            ("^\\*Help" ; R help window
-             (display-buffer-reuse-window display-buffer-in-side-window)
-             (side . right)
-             (window-width . 0.33)
-             (window-height . 0.33)
+	    ("^\\*Help" ; R help window
+	     (display-buffer-reuse-window display-buffer-in-side-window)
+	     (side . right)
+	     (window-width . 0.33)
+	     (window-height . 0.33)
 	     (dedicated . t)
 	     (slot . 1)
-             (reusable-frames . nil))
+	     (reusable-frames . nil))
 	    )
 	  )
     (setq ess-ask-for-ess-directory nil)
@@ -546,7 +545,7 @@ background of code to whatever theme I'm using's background"
 	     :reuse-frames (eq desktop-restore-reuses-frames t)
 	     :cleanup-frames (not (eq desktop-restore-reuses-frames 'keep))
 	     :force-display desktop-restore-in-current-display
-	         :force-onscreen desktop-restore-forces-onscreen)))
+		 :force-onscreen desktop-restore-forces-onscreen)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -569,9 +568,9 @@ background of code to whatever theme I'm using's background"
   (insert
    (let ((text label))
      (format "%s %s %s" comment-start text
-             (make-string
-              (-
-               (- display-fill-column-indicator-column 3) (length text)) ?-)))))
+	     (make-string
+	      (-
+	       (- display-fill-column-indicator-column 3) (length text)) ?-)))))
 
 (global-set-key (kbd "C-c s") 'insert-commented-line-separator)
 
@@ -597,85 +596,85 @@ Instead of random IDs like \"#orga1b2c3\", use heading titles,
 made unique when necessary."
     :global t
     (if unpackaged/org-export-html-with-useful-ids-mode
-        (advice-add #'org-export-get-reference :override #'unpackaged/org-export-get-reference)
+	(advice-add #'org-export-get-reference :override #'unpackaged/org-export-get-reference)
       (advice-remove #'org-export-get-reference #'unpackaged/org-export-get-reference)))
 
   (defun unpackaged/org-export-get-reference (datum info)
     "Like `org-export-get-reference', except uses heading titles instead of random numbers."
     (let ((cache (plist-get info :internal-references)))
       (or (car (rassq datum cache))
-          (let* ((crossrefs (plist-get info :crossrefs))
-                 (cells (org-export-search-cells datum))
-                 ;; Preserve any pre-existing association between
-                 ;; a search cell and a reference, i.e., when some
-                 ;; previously published document referenced a location
-                 ;; within current file (see
-                 ;; `org-publish-resolve-external-link').
-                 ;;
-                 ;; However, there is no guarantee that search cells are
-                 ;; unique, e.g., there might be duplicate custom ID or
-                 ;; two headings with the same title in the file.
-                 ;;
-                 ;; As a consequence, before re-using any reference to
-                 ;; an element or object, we check that it doesn't refer
-                 ;; to a previous element or object.
-                 (new (or (cl-some
-                           (lambda (cell)
-                             (let ((stored (cdr (assoc cell crossrefs))))
-                               (when stored
+	  (let* ((crossrefs (plist-get info :crossrefs))
+		 (cells (org-export-search-cells datum))
+		 ;; Preserve any pre-existing association between
+		 ;; a search cell and a reference, i.e., when some
+		 ;; previously published document referenced a location
+		 ;; within current file (see
+		 ;; `org-publish-resolve-external-link').
+		 ;;
+		 ;; However, there is no guarantee that search cells are
+		 ;; unique, e.g., there might be duplicate custom ID or
+		 ;; two headings with the same title in the file.
+		 ;;
+		 ;; As a consequence, before re-using any reference to
+		 ;; an element or object, we check that it doesn't refer
+		 ;; to a previous element or object.
+		 (new (or (cl-some
+			   (lambda (cell)
+			     (let ((stored (cdr (assoc cell crossrefs))))
+			       (when stored
                                  (let ((old (org-export-format-reference stored)))
-                                   (and (not (assoc old cache)) stored)))))
-                           cells)
-                          (when (org-element-property :raw-value datum)
-                            ;; Heading with a title
-                            (unpackaged/org-export-new-title-reference datum cache))
-                          ;; NOTE: This probably breaks some Org Export
-                          ;; feature, but if it does what I need, fine.
-                          (org-export-format-reference
-                           (org-export-new-reference cache))))
-                 (reference-string new))
-            ;; Cache contains both data already associated to
-            ;; a reference and in-use internal references, so as to make
-            ;; unique references.
-            (dolist (cell cells) (push (cons cell new) cache))
-            ;; Retain a direct association between reference string and
-            ;; DATUM since (1) not every object or element can be given
-            ;; a search cell (2) it permits quick lookup.
-            (push (cons reference-string datum) cache)
-            (plist-put info :internal-references cache)
-            reference-string))))
+				   (and (not (assoc old cache)) stored)))))
+			   cells)
+			  (when (org-element-property :raw-value datum)
+			    ;; Heading with a title
+			    (unpackaged/org-export-new-title-reference datum cache))
+			  ;; NOTE: This probably breaks some Org Export
+			  ;; feature, but if it does what I need, fine.
+			  (org-export-format-reference
+			   (org-export-new-reference cache))))
+		 (reference-string new))
+	    ;; Cache contains both data already associated to
+	    ;; a reference and in-use internal references, so as to make
+	    ;; unique references.
+	    (dolist (cell cells) (push (cons cell new) cache))
+	    ;; Retain a direct association between reference string and
+	    ;; DATUM since (1) not every object or element can be given
+	    ;; a search cell (2) it permits quick lookup.
+	    (push (cons reference-string datum) cache)
+	    (plist-put info :internal-references cache)
+	    reference-string))))
 
   (defun unpackaged/org-export-new-title-reference (datum cache)
     "Return new reference for DATUM that is unique in CACHE."
     (cl-macrolet ((inc-suffixf (place)
-                               `(progn
-                                  (string-match (rx bos
-                                                    (minimal-match (group (1+ anything)))
-                                                    (optional "--" (group (1+ digit)))
-                                                    eos)
-                                                ,place)
-                                  ;; HACK: `s1' instead of a gensym.
-                                  (-let* (((s1 suffix) (list (match-string 1 ,place)
-                                                             (match-string 2 ,place)))
-                                          (suffix (if suffix
-                                                      (string-to-number suffix)
-                                                    0)))
-                                    (setf ,place (format "%s--%s" s1 (cl-incf suffix)))))))
+			       `(progn
+				  (string-match (rx bos
+						    (minimal-match (group (1+ anything)))
+						    (optional "--" (group (1+ digit)))
+						    eos)
+						,place)
+				  ;; HACK: `s1' instead of a gensym.
+				  (-let* (((s1 suffix) (list (match-string 1 ,place)
+							     (match-string 2 ,place)))
+					  (suffix (if suffix
+						      (string-to-number suffix)
+						    0)))
+				    (setf ,place (format "%s--%s" s1 (cl-incf suffix)))))))
       (let* ((title (org-element-property :raw-value datum))
-             (ref (url-hexify-string (substring-no-properties title)))
-             (parent (org-element-property :parent datum)))
-        (while (--any (equal ref (car it))
-                      cache)
-          ;; Title not unique: make it so.
-          (if parent
-              ;; Append ancestor title.
-              (setf title (concat (org-element-property :raw-value parent)
-                                  "--" title)
-                    ref (url-hexify-string (substring-no-properties title))
-                    parent (org-element-property :parent parent))
-            ;; No more ancestors: add and increment a number.
-            (inc-suffixf ref)))
-        ref))))
+	     (ref (url-hexify-string (substring-no-properties title)))
+	     (parent (org-element-property :parent datum)))
+	(while (--any (equal ref (car it))
+		      cache)
+	  ;; Title not unique: make it so.
+	  (if parent
+	      ;; Append ancestor title.
+	      (setf title (concat (org-element-property :raw-value parent)
+				  "--" title)
+		    ref (url-hexify-string (substring-no-properties title))
+		    parent (org-element-property :parent parent))
+	    ;; No more ancestors: add and increment a number.
+	    (inc-suffixf ref)))
+	ref))))
 
 ; Export html when hitting F9
 (add-hook 'org-mode-hook
