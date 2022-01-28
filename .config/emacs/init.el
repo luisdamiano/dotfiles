@@ -174,6 +174,19 @@
 ;; Use spaces rather than tab as default
 (setq-default indent-tabs-mode nil)
 
+;; Whitespace settings ---------------------------------------------------------
+(use-package whitespace
+  :config
+  (global-whitespace-mode t)
+  (setq whitespace-style
+   '(face trailing lines-tail empty
+	indentation::tab big-indent space-after-tab::tab
+	space-after-tab::space space-after-tab space-before-tab::tab
+	space-before-tab::space space-before-tab)))
+
+(use-package whitespace-cleanup-mode
+  :init (whitespace-cleanup-mode t))
+
 ;; Paren settings --------------------------------------------------------------
 ;; https://www.emacswiki.org/emacs/ShowParenMode
 (use-package paren
