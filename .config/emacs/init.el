@@ -367,6 +367,13 @@ background of code to whatever theme I'm using's background"
   :config
   (pdf-tools-install :no-query))
 
+;; Bibliographic references ----------------------------------------------------
+;; bib file management
+(use-package ebib)
+
+;; Retrieve from public data bases
+(use-package biblio)
+
 ;; LaTeX settings --------------------------------------------------------------
 ;; Latex Mode https://tex.stackexchange.com/a/209509
 (defun my-LaTeX-mode()
@@ -529,7 +536,7 @@ background of code to whatever theme I'm using's background"
  '(esup-depth 0)
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(org-cliplink wc-mode helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
+   '(parsebib helm-bibtex ebib biblio org-cliplink wc-mode helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
  '(save-place-mode t)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
