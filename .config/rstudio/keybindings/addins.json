@@ -1,4 +1,5 @@
 {
     "lintr::addin_lint_package": "Alt+Shift+L",
-    "AlignAssign::alignAssign": "Ctrl+Shift+Z"
+    "AlignAssign::alignAssign": "Ctrl+Shift+Z",
+    "getfunctionargs::get_fn_args": "Ctrl+Alt+Shift+Z"
 }
