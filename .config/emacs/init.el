@@ -636,7 +636,7 @@ made unique when necessary."
 			   (lambda (cell)
 			     (let ((stored (cdr (assoc cell crossrefs))))
 			       (when stored
-                                 (let ((old (org-export-format-reference stored)))
+				 (let ((old (org-export-format-reference stored)))
 				   (and (not (assoc old cache)) stored)))))
 			   cells)
 			  (when (org-element-property :raw-value datum)
