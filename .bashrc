@@ -11,6 +11,12 @@ export TERMINAL='/usr/bin/termite'
 export VISUAL='emacs'
 export EDITOR='emacs'
 
+# Litter control ---------------------------------------------------------------
+## Aspell https://wiki.archlinux.org/title/XDG_Base_Directory#Partial
+export ASPELL_CONF="per-conf $XDG_CONFIG_HOME/aspell/aspell.conf;\
+       personal $XDG_CONFIG_HOME/aspell/en.pws;\
+       repl $XDG_CONFIG_HOME/aspell/en.prepl"
+
 # Aliases ----------------------------------------------------------------------
 ## Cli defaults
 alias ls='ls -hFo --color=auto'
