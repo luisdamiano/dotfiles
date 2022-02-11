@@ -581,6 +581,13 @@ background of code to whatever theme I'm using's background"
 
 (global-set-key (kbd "C-c s") 'insert-commented-line-separator)
 
+;; Call whitespace-cleanup on every file marked in dired
+(defun whitespace-cleanup-marked-files()
+  "Credits to bpalmer at emacs@libera.chat"
+  (interactive)
+  (dolist (f (dired-get-marked-files)) (find-file f)
+	  (whitespace-cleanup) (save-buffer) (kill-buffer)))
+
 ;; Custom theme-----------------------------------------------------------------
 ;; Dracula-dark (customized)
 ;; https://draculatheme.com/emacs/
