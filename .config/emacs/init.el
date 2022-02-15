@@ -287,6 +287,9 @@
 (use-package which-key
   :init (which-key-mode))
 
+;; ix pastebin -----------------------------------------------------------------
+(use-package ix)
+
 ;; graphviz dot settings -------------------------------------------------------
 (use-package graphviz-dot-mode)
 
