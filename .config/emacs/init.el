@@ -149,6 +149,11 @@
 (require 'ibuf-ext)
 (add-to-list 'ibuffer-never-show-predicates "^\\*")
 
+;; Editing ---------------------------------------------------------------------
+;; Commenting
+(use-package comment-dwim-2
+  :bind (("M-;" . comment-dwim-2)))
+
 ;; Custom occur query ----------------------------------------------------------
 (defun occur-quick-layout()
   "Show all entries with four or more dashes."
@@ -321,6 +326,11 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 ;; Org settings ----------------------------------------------------------------
 (setq org-support-shift-select 'always)
 
+;; empty line before, but never after, newly inserted headline
+;; https://orgmode.org/worg/org-faq.html#blank-line-after-headlines-and-list-items
+(setq org-blank-before-new-entry
+      '((heading . t) (plain-list-item . nil)))
+
 ;; export html when hitting F9
 (add-hook 'org-mode-hook
 	  (lambda() (local-set-key (kbd "<f9>") 'org-html-export-to-html)))
@@ -455,6 +465,35 @@ background of code to whatever theme I'm using's background"
 	   (ess-ask-about-transfile nil))
   )
 
+(use-package lsp-mode
+  :init
+  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+  (setq lsp-keymap-prefix "C-c l")
+  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+         (ess-mode . lsp)
+         ;; if you want which-key integration
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
+
+(setq gc-cons-threshold 100000000)
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+
+;; optionally
+(use-package lsp-ui :commands lsp-ui-mode)
+;; if you are helm user
+(use-package helm-lsp :commands helm-lsp-workspace-symbol)
+;; if you are ivy user
+(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+
+;; optionally if you want to use debugger
+(use-package dap-mode)
+;; (use-package dap-LANGUAGE) to load the dap adapter for your language
+
+;; optional if you want which-key integration
+(use-package which-key
+    :config
+    (which-key-mode))
 
 ;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Buffer-Display-Action-Alists.html
 (defun goR()(interactive)
@@ -539,7 +578,7 @@ background of code to whatever theme I'm using's background"
  '(esup-depth 0)
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(parsebib helm-bibtex ebib biblio org-cliplink wc-mode helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
+   '(dap-mode lsp-treemacs lsp-ivy helm-lsp lsp-ui lsp-mode comment-dwim-2 ix\.el ix parsebib helm-bibtex ebib biblio org-cliplink wc-mode helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
  '(save-place-mode t)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
