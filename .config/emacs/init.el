@@ -1,11 +1,11 @@
-; Set up MELPA bleeding-edge repository ----------------------------------------
-;OB; Set up MELPA bleeding-edge repository
+;; Set up MELPA bleeding-edge repository ---------------------------------------
+;; OB; Set up MELPA bleeding-edge repository
 ;; https://melpa.org/#/getting-started
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-; Set up use-package -----------------------------------------------------------
+;; Set up use-package ----------------------------------------------------------
 ;; Set up use-package
 ;; https://github.com/jwiegley/use-package/blob/a7422fb8ab1baee19adb2717b5b47b9c3812a84c/README.md#getting-started
 ;; This is only needed once, near the top of the file
@@ -18,20 +18,20 @@
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
-; Update packages automatically ------------------------------------------------
+;; Update packages automatically -----------------------------------------------
 ;; (use-package auto-package-update
 ;;   :config
 ;;   (setq auto-package-update-delete-old-versions t)
 ;;   (setq auto-package-update-hide-results t)
 ;;   (auto-package-update-maybe))
 
-; Profile initialization time --------------------------------------------------
+;; Profile initialization time -------------------------------------------------
 (use-package esup
   :ensure t
   ;; To use MELPA Stable use ":pin melpa-stable",
   :pin melpa)
 
-; Auto save and backup----------------------------------------------------------
+;; Auto save and backup---------------------------------------------------------
 ;; https://emacs.grym.io/#org95d343b
 (defvar emacs-autosave-directory
   (concat user-emacs-directory "autosaves/")
@@ -53,7 +53,7 @@
       `((".*" . ,emacs-autosave-directory)))
 
 (setq kept-new-versions 10
-      kept-old-verisons 0)
+      kept-old-versions 0)
 
 (setq delete-old-versions t)
 
@@ -64,7 +64,7 @@
 (use-package backup-each-save
 	     :hook (after-save . backup-each-save))
 
-; Auto revert buffer when file is modified -------------------------------------
+;; Auto revert buffer when file is modified ------------------------------------
 (global-auto-revert-mode 1)
 
 ;; Remove some buffers ---------------------------------------------------------
@@ -97,6 +97,42 @@
 
 ;; Speed bar -------------------------------------------------------------------
 (use-package  sr-speedbar)
+
+(add-to-list 'imenu-generic-expression '(nil "^\\s-*-\{4,\}$" 1))
+(add-to-list 'imenu-generic-expression '(nil ".*?-\{4,\}$" 1))
+
+;; custom tags
+;; http://www.gnu.org/software/emacs/manual/html_node/speedbar/Tagging-Extensions.html
+;; See also describe-symbol speedbar-dynamic-tags-function-list
+
+;; ;; ;;;
+;; (defun re-seq (regexp string)
+;;   "Get a list of all regexp matches in a string"
+;;   (save-match-data
+;;     (let ((pos 0)
+;;           matches)
+;;       (while (string-match regexp string pos)
+;;         (push (match-string 0 string) matches)
+;;         (setq pos (match-end 0)))
+;;       matches)))
+
+;; ;; (defvar tmp-var (re-seq "\\S+\\s(.+?)\\s-{4,}" (buffer-string)))
+
+;; ;; ;;; Based on speedbar-fetch-dynamic-imenu
+;; (defun speedbar-fetch-dynamic-separators (file)
+;;   "Load FILE into a buffer, and generate tags using Imenu.
+;; Returns the tag list, or t for an error."
+;;   ;; Load this AND compile it in
+;;   (set-buffer (find-file-noselect file))
+;;   (re-seq "\\S+\\s(.+?)\\s-{4,}" (buffer-string))
+;;   )
+
+;; (defvar tmp-var (speedbar-fetch-dynamic-separators "~/.config/emacs/init.el"))
+;; (describe-variable 'tmp-var)
+
+;; (add-to-list 'speedbar-dynamic-tags-function-list
+;;              '(speedbar-fetch-dynamic-separators
+;;              . speedbar-create-tag-hierarchy))
 
 ;; Key bindings ----------------------------------------------------------------
 (use-package key-chord
@@ -214,7 +250,7 @@
   )
 
 ;; Add column line -------------------------------------------------------------
-; https://emacs.stackexchange.com/a/50583
+;; https://emacs.stackexchange.com/a/50583
 (global-display-fill-column-indicator-mode 1)
 (setq-default display-fill-column-indicator-column 80)
 
@@ -230,7 +266,7 @@
   )
 
 ;; Parenthesis settings --------------------------------------------------------
-; Activate electric pairs by default
+;; Activate electric pairs by default
 (electric-pair-mode t)
 
 (use-package smartparens
@@ -254,6 +290,10 @@
 ;; flyspell without a mouse
 ;; https://www.emacswiki.org/emacs/FlySpell#h5o-7
 (global-set-key (kbd "<f8>") 'ispell-word)
+
+;; no spell check in source blocks
+;; https://orgmode.org/worg/org-faq.html#orgdb49ea8
+(add-to-list 'ispell-skip-region-alist '("#\\+begin_src". "#\\+end_src"))
 
 ;; Highlight keywords ----------------------------------------------------------
 (use-package hl-todo
@@ -449,9 +489,9 @@ background of code to whatever theme I'm using's background"
 	     poly-brew+r-mode
 	     poly-r+c++-mode
 	     poly-c++r-mode)
-;  :init
-;  (require 'poly-R)
-;  (require 'poly-markdown)
+;; :init
+;; (require 'poly-R)
+;; (require 'poly-markdown)
   :config
   (add-to-list 'auto-mode-alist '("\\.md$" . poly-markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.Rmd$" . poly-markdown+r-mode))
@@ -470,9 +510,9 @@ background of code to whatever theme I'm using's background"
   ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
   (setq lsp-keymap-prefix "C-c l")
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-         (ess-mode . lsp)
-         ;; if you want which-key integration
-         (lsp-mode . lsp-enable-which-key-integration))
+	 (ess-mode . lsp)
+	 ;; if you want which-key integration
+	 (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
 
 (setq gc-cons-threshold 100000000)
@@ -584,7 +624,7 @@ background of code to whatever theme I'm using's background"
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 
-; (add-to-list 'desktop-path default-directory)
+;; (add-to-list 'desktop-path default-directory)
 
 (setq desktop-restore-forces-onscreen nil)
 (add-hook 'desktop-after-read-hook
@@ -608,7 +648,7 @@ background of code to whatever theme I'm using's background"
  '(font-latex-sedate-face ((t (:foreground "yellow"))))
  '(show-paren-match ((t (:background "#282a36" :foreground "#def" :underline t :weight extra-bold)))))
 
-;  Custom functions ------------------------------------------------------------
+;;  Custom functions -----------------------------------------------------------
 ;; Insert commented line separator
 ;; Credits: pjb from #emacs at libera.chat
 (defun insert-commented-line-separator (label)
@@ -629,6 +669,24 @@ background of code to whatever theme I'm using's background"
   (interactive)
   (dolist (f (dired-get-marked-files)) (find-file f)
 	  (whitespace-cleanup) (save-buffer) (kill-buffer)))
+
+(defun indent-region-marked-files()
+  "Credits to bpalmer at emacs@libera.chat"
+  (interactive)
+  (dolist (f (dired-get-marked-files)) (find-file f)
+	  (indent-region (point-min) (point-max)) (save-buffer) (kill-buffer)))
+
+(defun execute-on-marked-files(command-name)
+  "Read a command name and call it on files marked in dired buffer."
+  (interactive "sCommand name: ")
+  (dolist (f (dired-get-marked-files)) (find-file f)
+	  ;; (push-mark)
+	  ;; (push-mark (point-max) nil t)
+	  ;; (goto-char (minibuffer-prompt-end))
+	  ;;(command-execute (if (stringp command-name) (intern-soft command-name) command-name))
+	  (command-execute (intern-soft command-name))
+	  (save-buffer)
+	  (kill-buffer)))
 
 ;; Custom theme-----------------------------------------------------------------
 ;; Dracula-dark (customized)
@@ -725,18 +783,9 @@ made unique when necessary."
 	  (if parent
 	      ;; Append ancestor title.
 	      (setf title (concat (org-element-property :raw-value parent)
-				  "--" title)
+                                  "--" title)
 		    ref (url-hexify-string (substring-no-properties title))
 		    parent (org-element-property :parent parent))
 	    ;; No more ancestors: add and increment a number.
 	    (inc-suffixf ref)))
 	ref))))
-
-; Export html when hitting F9
-(add-hook 'org-mode-hook
-	  (lambda() (unpackaged/org-export-html-with-useful-ids-mode)))
-(put 'TeX-narrow-to-group 'disabled nil)
-
-
-(add-to-list 'imenu-generic-expression (list nil "-{4,}$" 2))
-(put 'LaTeX-narrow-to-environment 'disabled nil)
