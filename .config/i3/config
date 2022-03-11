@@ -172,7 +172,7 @@ bindsym $mod+r mode "resize"
 bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/pictures/screenshots && mv $f ~/pictures/screenshots && xclip -selection clipboard -t image/png -i ~/pictures/screenshots/`ls -1 -t ~/pictures/screenshots | head -1`' # All screens
 bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/pictures/screenshots && mv $f ~/pictures/screenshots && xclip -selection clipboard -t image/png -i ~/pictures/screenshots/`ls -1 -t ~/pictures/screenshots | head -1`' # Area selection
 
-# Control system volumen https://faq.i3wm.org/question/125/how-to-change-the-systems-volume.1.html
+# Control system volume https://faq.i3wm.org/question/125/how-to-change-the-systems-volume.1.html
 bindsym $mod+Next  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2.5% && killall -SIGUSR1 i3status
 bindsym $mod+Prior exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2.5% && killall -SIGUSR1 i3status
 bindsym $mod+Home  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 0% && killall -SIGUSR1 i3status
