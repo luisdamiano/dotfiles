@@ -191,3 +191,22 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <c> <X>                : "𝓧"         # CALLIGRAPHY X
 <Multi_key> <c> <Y>                : "𝓨"         # CALLIGRAPHY Y
 <Multi_key> <c> <Z>                : "𝓩"         # CALLIGRAPHY Z
+
+## Of course
+<Multi_key> <k> <l> <e>                 : "( ͡° ͜ʖ ͡°)"
+<Multi_key> <k> <j> <o> <y>             : "(＾▽＾)"
+<Multi_key> <k> <y> <a> <y>             : "＼(＾▽＾)／"
+<Multi_key> <k> <e> <y> <e>             : "٩(｡•́‿•̀｡)۶"
+<Multi_key> <k> <l> <o> <v> <e>         : "(´♡‿♡`)"
+<Multi_key> <k> <j> <e> <e>             : "(￢_￢;)"
+<Multi_key> <k> <s> <a> <d>             : "(◕︵◕)"
+<Multi_key> <k> <h> <m> <h>             : "（．＿．）"
+<Multi_key> <k> <g> <a> <h>             : "(>_ <)"
+<Multi_key> <k> <s> <h> <r>             : "¯\_(ツ)_/¯"
+<Multi_key> <k> <w> <h> <a> <t>         : "(o_O) !"
+<Multi_key> <k> <c> <o> <o> <l>         : "(⌐■_■)"
+<Multi_key> <k> <c> <u> <t> <e>         : "(｡◕‿‿◕｡)"
+<Multi_key> <k> <n> <i> <c> <e>         : "(✿◠‿◠)"
+<Multi_key> <k> <o> <k>                 : "(◔_◔)"
+<Multi_key> <k> <w> <t> <f>             : "(⊙＿⊙')"
+<Multi_key> <k> <a> <n> <g> <r> <y>     : "•`_´•"
