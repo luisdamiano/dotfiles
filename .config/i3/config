@@ -187,6 +187,10 @@ bindsym $mod+Shift+m swap container with mark swapee
 # bindsym $mod+d exec "dmenu_run"
 bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10'"
 
+# Switch keyboard layouts
+exec --no-startup-id setxkbmap 'us,gr' -variant ',polytonic' -option grp:'alt_caps_toggle'
+exec --no-startup-id setxkbmap -option compose:rctrl
+
 # Put workspaces on specific screens -------------------------------------------
 ## See xrandr --current
 workspace  "1" output DP-1

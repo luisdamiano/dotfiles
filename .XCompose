@@ -1,0 +1,193 @@
+# Default
+include "/usr/share/X11/locale/en_US.UTF-8/Compose"
+
+# Greeks -----------------------------------------------------------------------
+## Consider switching to Greek keyboard layout instead
+## https://gist.github.com/zkat/6718053
+
+# Math -------------------------------------------------------------------------
+## Math symbols
+## https://gist.github.com/zkat/6718053
+<Multi_key> <equal>      <asciitilde>           : "≈"
+<Multi_key> <equal>      <slash>                : "≠"
+<Multi_key> <slash>      <equal>                : "≠"
+<Multi_key> <greater>    <equal>                : "≥"
+<Multi_key> <less>       <equal>                : "≤"
+<Multi_key> <i>          <n>       <f>          : "∞"
+<Multi_key> <s>          <r>       <2>          : "√"
+<Multi_key> <s>          <r>       <3>          : "∛"
+<Multi_key> <s>          <r>       <4>          : "∜"
+<Multi_key> <colon>      <period>               : "∴"
+<Multi_key> <period>     <colon>                : "∵"
+<Multi_key> <colon>      <greater>              : "⇒"
+<Multi_key> <less>       <colon>                : "⇐"
+<Multi_key> <less>       <greater> <colon>      : "⇔"
+<Multi_key> <s>          <->       <v>          : "∀"
+<Multi_key> <s>          <E>                    : "∃"
+<Multi_key> <equal>      <equal>   <asciitilde> : "≅"
+<Multi_key> <s>          <O>       <slash>      : "∅"
+<Multi_key> <i>          <n>       <t>          : "∫"
+<Multi_key> <s>          <i>       <n>          : "∈"
+<Multi_key> <s>          </>       <i> <n>      : "∉"
+<Multi_key> <s>          <u>       <n>          : "∪"
+<Multi_key> <s>          <slash>   <u> <n>      : "∩"
+<Multi_key> <p>          <s>       <u>          : "⊂"
+<Multi_key> <s>          <u>                    : "⊆"
+<Multi_key> <n>          <s>       <u>          : "⊈"
+<Multi_key> <s>          <n>                    : "∧"
+<Multi_key> <s>          <v>                    : "∨"
+<Multi_key> <_>          <v>       <v>          : "⊻"
+
+## Math symbols
+## https://github.com/nshepperd/xcompose/blob/master/math.conf
+<Multi_key> <period> <apostrophe>  <period>     : "∴" U2234 # THEREFORE
+<Multi_key> <apostrophe> <period> <apostrophe>  : "∵" U2235 # BECAUSE
+<Multi_key> <s> <plus>               : "⊕" U2295 # DIRECT SUM
+<Multi_key> <s> <x>                  : "×" U00D7 # MULTIPLICATION
+<Multi_key> <s> <u>                  : "∪" U222A # SET UNION
+<Multi_key> <s> <i>                  : "∩" U2229 # SET INTERSECTION
+<Multi_key> <s> <less> <bar>         : "◁"   ideal
+<Multi_key> <s> <p> <m>              : "±"   plusminus # PLUS-MINUS SIGN
+<Multi_key> <s> <m> <p>              : "∓"   plusminus # PLUS-MINUS SIGN
+
+## superscripts
+## https://github.com/nshepperd/xcompose/blob/master/superscripts.conf
+<Multi_key> <asciicircum> <0>        : "⁰"   U2070 # SUPERSCRIPT ZERO
+<Multi_key> <asciicircum> <1>        : "¹"   onesuperior # SUPERSCRIPT ONE
+<Multi_key> <asciicircum> <2>        : "²"   twosuperior # SUPERSCRIPT TWO
+<Multi_key> <asciicircum> <3>        : "³"   threesuperior # SUPERSCRIPT THREE
+<Multi_key> <asciicircum> <4>        : "⁴"   U2074 # SUPERSCRIPT FOUR
+<Multi_key> <asciicircum> <5>        : "⁵"   U2075 # SUPERSCRIPT FIVE
+<Multi_key> <asciicircum> <6>        : "⁶"   U2076 # SUPERSCRIPT SIX
+<Multi_key> <asciicircum> <7>        : "⁷"   U2077 # SUPERSCRIPT SEVEN
+<Multi_key> <asciicircum> <8>        : "⁸"   U2078 # SUPERSCRIPT EIGHT
+<Multi_key> <asciicircum> <9>        : "⁹"   U2079 # SUPERSCRIPT NINE
+<Multi_key> <asciicircum> <plus>     : "⁺"   U207A # SUPERSCRIPT PLUS SIGN
+
+## subscripts
+## https://github.com/nshepperd/xcompose/blob/master/superscripts.conf
+<Multi_key> <underscore> <0>         : "₀"   U2080 # SUBSCRIPT ZERO
+<Multi_key> <underscore> <1>         : "₁"   U2081 # SUBSCRIPT ONE
+<Multi_key> <underscore> <2>         : "₂"   U2082 # SUBSCRIPT TWO
+<Multi_key> <underscore> <3>         : "₃"   U2083 # SUBSCRIPT THREE
+<Multi_key> <underscore> <4>         : "₄"   U2084 # SUBSCRIPT FOUR
+<Multi_key> <underscore> <5>         : "₅"   U2085 # SUBSCRIPT FIVE
+<Multi_key> <underscore> <6>         : "₆"   U2086 # SUBSCRIPT SIX
+<Multi_key> <underscore> <7>         : "₇"   U2087 # SUBSCRIPT SEVEN
+<Multi_key> <underscore> <8>         : "₈"   U2088 # SUBSCRIPT EIGHT
+<Multi_key> <underscore> <9>         : "₉"   U2089 # SUBSCRIPT NINE
+<Multi_key> <underscore> <plus>      : "₊"   U208A # SUBSCRIPT PLUS SIGN
+
+## Math blackboard
+## https://github.com/exaexa/xcompose/blob/master/.XCompose
+<Multi_key> <b> <A> : "𝔸"
+<Multi_key> <b> <b> : "𝔹"
+<Multi_key> <b> <C> : "ℂ"
+<Multi_key> <b> <D> : "𝔻"
+<Multi_key> <b> <E> : "𝔼"
+<Multi_key> <b> <F> : "𝔽"
+<Multi_key> <b> <G> : "𝔾"
+<Multi_key> <b> <H> : "ℍ"
+<Multi_key> <b> <I> : "𝕀"
+<Multi_key> <b> <J> : "𝕁"
+<Multi_key> <b> <K> : "𝕂"
+<Multi_key> <b> <L> : "𝕃"
+<Multi_key> <b> <M> : "𝕄"
+<Multi_key> <b> <N> : "ℕ"
+<Multi_key> <b> <O> : "𝕆"
+<Multi_key> <b> <P> : "ℙ"
+<Multi_key> <b> <Q> : "ℚ"
+<Multi_key> <b> <R> : "ℝ"
+<Multi_key> <b> <S> : "𝕊"
+<Multi_key> <b> <T> : "𝕋"
+<Multi_key> <b> <U> : "𝕌"
+<Multi_key> <b> <V> : "𝕍"
+<Multi_key> <b> <W> : "𝕎"
+<Multi_key> <b> <X> : "𝕏"
+<Multi_key> <b> <Y> : "𝕐"
+<Multi_key> <b> <Z> : "ℤ"
+
+## Math italic
+## https://github.com/Wafelack/dotfiles/blob/master/X/.XCompose
+## Math italic
+<Multi_key> <m> <A> : "𝐴"
+<Multi_key> <m> <B> : "𝐵"
+<Multi_key> <m> <C> : "𝐶"
+<Multi_key> <m> <D> : "𝐷"
+<Multi_key> <m> <E> : "𝐸"
+<Multi_key> <m> <F> : "𝐹"
+<Multi_key> <m> <G> : "𝐺"
+<Multi_key> <m> <H> : "𝐻"
+<Multi_key> <m> <I> : "𝐼"
+<Multi_key> <m> <J> : "𝐽"
+<Multi_key> <m> <K> : "𝐾"
+<Multi_key> <m> <L> : "𝐿"
+<Multi_key> <m> <M> : "𝑀"
+<Multi_key> <m> <N> : "𝑁"
+<Multi_key> <m> <O> : "𝑂"
+<Multi_key> <m> <P> : "𝑃"
+<Multi_key> <m> <Q> : "𝑄"
+<Multi_key> <m> <R> : "𝑅"
+<Multi_key> <m> <S> : "𝑆"
+<Multi_key> <m> <T> : "𝑇"
+<Multi_key> <m> <U> : "𝑈"
+<Multi_key> <m> <V> : "𝑉"
+<Multi_key> <m> <W> : "𝑊"
+<Multi_key> <m> <X> : "𝑋"
+<Multi_key> <m> <Y> : "𝑌"
+<Multi_key> <m> <Z> : "𝑍"
+<Multi_key> <m> <a> : "𝑎"
+<Multi_key> <m> <b> : "𝑏"
+<Multi_key> <m> <c> : "𝑐"
+<Multi_key> <m> <d> : "𝑑"
+<Multi_key> <m> <e> : "𝑒"
+<Multi_key> <m> <f> : "𝑓"
+<Multi_key> <m> <g> : "𝑔"
+<Multi_key> <m> <h> : "ℎ"
+<Multi_key> <m> <i> : "𝑖"
+<Multi_key> <m> <j> : "𝑗"
+<Multi_key> <m> <k> : "𝑘"
+<Multi_key> <m> <l> : "𝑙"
+<Multi_key> <m> <m> : "𝑚"
+<Multi_key> <m> <n> : "𝑛"
+<Multi_key> <m> <o> : "𝑜"
+<Multi_key> <m> <p> : "𝑝"
+<Multi_key> <m> <q> : "𝑞"
+<Multi_key> <m> <r> : "𝑟"
+<Multi_key> <m> <s> : "𝑠"
+<Multi_key> <m> <t> : "𝑡"
+<Multi_key> <m> <u> : "𝑢"
+<Multi_key> <m> <v> : "𝑣"
+<Multi_key> <m> <w> : "𝑤"
+<Multi_key> <m> <x> : "𝑥"
+<Multi_key> <m> <y> : "𝑦"
+<Multi_key> <m> <z> : "𝑧"
+
+## Math caligraphic
+## https://github.com/Vanille-N/dotfiles/blob/8062331e07f0e3d5aea72b69d8887e34088f4ee3/env/xcompose
+<Multi_key> <c> <A>                : "𝓐"         # CALLIGRAPHY A
+<Multi_key> <c> <B>                : "𝓑"         # CALLIGRAPHY B
+<Multi_key> <c> <C>                : "𝓒"         # CALLIGRAPHY C
+<Multi_key> <c> <D>                : "𝓓"         # CALLIGRAPHY D
+<Multi_key> <c> <E>                : "𝓔"         # CALLIGRAPHY E
+<Multi_key> <c> <F>                : "𝓕"         # CALLIGRAPHY F
+<Multi_key> <c> <G>                : "𝓖"         # CALLIGRAPHY G
+<Multi_key> <c> <H>                : "𝓗"         # CALLIGRAPHY H
+<Multi_key> <c> <I>                : "𝓘"         # CALLIGRAPHY I
+<Multi_key> <c> <J>                : "𝓙"         # CALLIGRAPHY J
+<Multi_key> <c> <K>                : "𝓚"         # CALLIGRAPHY K
+<Multi_key> <c> <L>                : "𝓛"         # CALLIGRAPHY L
+<Multi_key> <c> <M>                : "𝓜"         # CALLIGRAPHY M
+<Multi_key> <c> <N>                : "𝓝"         # CALLIGRAPHY N
+<Multi_key> <c> <O>                : "𝓞"         # CALLIGRAPHY O
+<Multi_key> <c> <P>                : "𝓟"         # CALLIGRAPHY P
+<Multi_key> <c> <Q>                : "𝓠"         # CALLIGRAPHY Q
+<Multi_key> <c> <R>                : "𝓡"         # CALLIGRAPHY R
+<Multi_key> <c> <S>                : "𝓢"         # CALLIGRAPHY S
+<Multi_key> <c> <T>                : "𝓣"         # CALLIGRAPHY T
+<Multi_key> <c> <U>                : "𝓤"         # CALLIGRAPHY U
+<Multi_key> <c> <V>                : "𝓥"         # CALLIGRAPHY V
+<Multi_key> <c> <W>                : "𝓦"         # CALLIGRAPHY W
+<Multi_key> <c> <X>                : "𝓧"         # CALLIGRAPHY X
+<Multi_key> <c> <Y>                : "𝓨"         # CALLIGRAPHY Y
+<Multi_key> <c> <Z>                : "𝓩"         # CALLIGRAPHY Z
