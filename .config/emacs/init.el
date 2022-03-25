@@ -618,7 +618,7 @@ background of code to whatever theme I'm using's background"
  '(esup-depth 0)
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(dap-mode lsp-treemacs lsp-ivy helm-lsp lsp-ui lsp-mode comment-dwim-2 ix\.el ix parsebib helm-bibtex ebib biblio org-cliplink wc-mode helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
+   '(ox-tiddly dap-mode lsp-treemacs lsp-ivy helm-lsp lsp-ui lsp-mode comment-dwim-2 ix\.el ix parsebib helm-bibtex ebib biblio org-cliplink wc-mode helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
  '(save-place-mode t)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)

@@ -1,4 +1,4 @@
-personal_ws-1.1 en 71 
+personal_ws-1.1 en 73 
 ADE
 ADRD
 ALF
@@ -9,6 +9,7 @@ Damiano
 FPCA
 HNO
 Jarad
+MCMC
 MLE
 MLS
 Mahalanobis
@@ -51,6 +52,7 @@ kriging
 mesopause
 metamodeling
 multimodality
+overfitting
 parameterizations
 parametrization
 performant
