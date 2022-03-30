@@ -477,6 +477,8 @@ background of code to whatever theme I'm using's background"
      (use-package poly-markdown
        :ensure t)
 
+(use-package poly-R)
+
 ;; https://github.com/vspinu/polymode
 (use-package polymode
   :diminish (poly-org-mode
@@ -491,7 +493,8 @@ background of code to whatever theme I'm using's background"
 	     poly-c++r-mode)
 ;; :init
 ;; (require 'poly-R)
-;; (require 'poly-markdown)
+  ;; (require 'poly-markdown)
+  :after (poly-R poly-markdown)
   :config
   (add-to-list 'auto-mode-alist '("\\.md$" . poly-markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.Rmd$" . poly-markdown+r-mode))
@@ -505,15 +508,15 @@ background of code to whatever theme I'm using's background"
 	   (ess-ask-about-transfile nil))
   )
 
-(use-package lsp-mode
-  :init
-  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
-  (setq lsp-keymap-prefix "C-c l")
-  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-	 (ess-mode . lsp)
-	 ;; if you want which-key integration
-	 (lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp)
+;; (use-package lsp-mode
+;;   :init
+;;   ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+;;   (setq lsp-keymap-prefix "C-c l")
+;;   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+;; 	 (ess-mode . lsp)
+;; 	 ;; if you want which-key integration
+;; 	 (lsp-mode . lsp-enable-which-key-integration))
+;;   :commands lsp)
 
 (setq gc-cons-threshold 100000000)
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
@@ -618,7 +621,7 @@ background of code to whatever theme I'm using's background"
  '(esup-depth 0)
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(ox-tiddly dap-mode lsp-treemacs lsp-ivy helm-lsp lsp-ui lsp-mode comment-dwim-2 ix\.el ix parsebib helm-bibtex ebib biblio org-cliplink wc-mode helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
+   '(poly-R ox-tiddly dap-mode lsp-treemacs lsp-ivy helm-lsp lsp-ui lsp-mode comment-dwim-2 ix\.el ix parsebib helm-bibtex ebib biblio org-cliplink wc-mode helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
  '(save-place-mode t)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
