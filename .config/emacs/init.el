@@ -371,6 +371,10 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 (setq org-blank-before-new-entry
       '((heading . t) (plain-list-item . nil)))
 
+;; adapt indentation for all lines
+;; https://emacs.stackexchange.com/a/70229
+(setq org-adapt-indentation t)
+
 ;; export html when hitting F9
 (add-hook 'org-mode-hook
 	  (lambda() (local-set-key (kbd "<f9>") 'org-html-export-to-html)))
