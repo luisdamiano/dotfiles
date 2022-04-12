@@ -1,0 +1,5 @@
+.include /etc/pulse/default.pa
+
+## Create a null output device
+load-module module-null-sink sink_name=from_obs sink_properties=device.description='From\ OBS\ monitor\ sink'
+load-module module-virtual-source source_name=from_obs master=from_obs.monitor source_properties=device.description='From\ OBS\ source'
