@@ -33,6 +33,7 @@ alias xpaste="xclip -selection clipboard -o"
 alias R="R --quiet --no-restore --no-save"
 alias n2="dvtm nnn nnn"
 alias rgr="rg --type=r"
+alias latexpvc="latexmk --lualatex -pvc --interaction=nonstopmode"
 
 magit() { emacsclient -nw -e '(progn (magit-status)(delete-other-windows))'; }
 madit() { emacs -nw -f madit-status -f fit-window-to-buffer $1; }
