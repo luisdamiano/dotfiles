@@ -796,3 +796,7 @@ made unique when necessary."
 	    ;; No more ancestors: add and increment a number.
 	    (inc-suffixf ref)))
 	ref))))
+
+;; turn on minor mode when org-mode is loaded
+(add-hook 'org-mode-hook
+	  'unpackaged/org-export-html-with-useful-ids-mode)
