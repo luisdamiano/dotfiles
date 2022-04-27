@@ -1,4 +1,4 @@
-personal_ws-1.1 en 77 
+personal_ws-1.1 en 80 
 ADE
 ADRD
 ALF
@@ -40,6 +40,7 @@ dimensionality
 discretization
 discretized
 discretizing
+endslopes
 fiGP
 functionals
 generalizable
@@ -48,6 +49,7 @@ hectopascal
 hectopascals
 hyperparameter
 hyperref
+interpolant
 interpretable
 invariance
 kriging
@@ -66,6 +68,7 @@ structureless
 subindexes
 subinterval
 subspaces
+summand
 surrogator
 th
 thresholding
