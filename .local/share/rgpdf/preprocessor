@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# https://github.com/BurntSushi/ripgrep/blob/d161acb0a360cd437214048e2580f4604f8d4b44/GUIDE.md#preprocessor
+case "$1" in
+*.pdf)
+  # The -s flag ensures that the file is non-empty.
+  if [ -s "$1" ]; then
+    exec pdftotext - -
+  else
+    exec cat
+  fi
+  ;;
+*)
+  exec cat
+  ;;
+esac
