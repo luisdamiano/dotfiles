@@ -101,6 +101,19 @@
 (add-to-list 'imenu-generic-expression '(nil "^\\s-*-\{4,\}$" 1))
 (add-to-list 'imenu-generic-expression '(nil ".*?-\{4,\}$" 1))
 
+;; Sidebar ---------------------------------------------------------------------
+;; https://github.com/rougier/dotemacs/blob/61cff30bfafb04dab3c017952c8ca4a47701fc83/dotemacs.org#sidebar
+(use-package  imenu-list
+  :config
+  (setq
+   imenu-list-position 'left
+   imenu-list-size 28
+   imenu-list-focus-after-activation t)
+  :bind ("<f7>" . imenu-list-smart-toggle))
+
+;; Always on in latex and org mdoe
+
+
 ;; custom tags
 ;; http://www.gnu.org/software/emacs/manual/html_node/speedbar/Tagging-Extensions.html
 ;; See also describe-symbol speedbar-dynamic-tags-function-list
@@ -211,18 +224,33 @@
 (use-package helm)
 
 ;; Indentation settings --------------------------------------------------------
-;; Use spaces rather than tab as default
-(setq-default indent-tabs-mode nil)
+;; https://github.com/rougier/dotemacs/blob/61cff30bfafb04dab3c017952c8ca4a47701fc83/dotemacs.org#tabulations
+(setq-default indent-tabs-mode nil        ; Stop using tabs to indent
+              tab-always-indent 'complete ; Indent first then try completions
+              tab-width 4)                ; Smaller width for tab characters
+
+;; ;; Use spaces rather than tab as default
+;; (setq-default indent-tabs-mode nil)
 
 ;; Whitespace settings ---------------------------------------------------------
 (use-package whitespace
   :config
   (global-whitespace-mode t)
   (setq whitespace-style
-   '(face trailing lines-tail empty
-	indentation::tab big-indent space-after-tab::tab
-	space-after-tab::space space-after-tab space-before-tab::tab
-	space-before-tab::space space-before-tab)))
+        '(face
+          empty ; empty lines at beginning and/or end of buffer
+          trailing ; trailing blanks
+          lines-tail ; part of line which goes beyond `whitespace-line-column'
+          tabs ; all tabs
+	  ;; indentation::tab  ; 8 or more spaces at line beginning
+          ;; big-indent ; ???
+          ;; space-after-tab::tab ; 8 or more SPACEs after a TAB
+	  ;; space-after-tab::space
+          ;; space-after-tab
+          ;; space-before-tab::tab
+	  ;; space-before-tab::space
+          ;; space-before-tab
+          )))
 
 (use-package whitespace-cleanup-mode
   :init (whitespace-cleanup-mode t))
@@ -250,6 +278,12 @@
   )
 
 ;; Add column line -------------------------------------------------------------
+;; https://github.com/rougier/dotemacs/blob/61cff30bfafb04dab3c017952c8ca4a47701fc83/dotemacs.org#typography
+(setq-default fill-column 80                          ; Default line width 
+              sentence-end-double-space nil           ; Use a single space after dots
+              bidi-paragraph-direction 'left-to-right ; Faster
+              truncate-string-ellipsis "…")           ; Nicer ellipsis
+
 ;; https://emacs.stackexchange.com/a/50583
 (global-display-fill-column-indicator-mode 1)
 (setq-default display-fill-column-indicator-column 80)
@@ -625,7 +659,7 @@ background of code to whatever theme I'm using's background"
  '(esup-depth 0)
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(poly-R ox-tiddly dap-mode lsp-treemacs lsp-ivy helm-lsp lsp-ui lsp-mode comment-dwim-2 ix\.el ix parsebib helm-bibtex ebib biblio org-cliplink wc-mode helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
+   '(imenu-list poly-R ox-tiddly dap-mode lsp-treemacs lsp-ivy helm-lsp lsp-ui lsp-mode comment-dwim-2 ix\.el ix parsebib helm-bibtex ebib biblio org-cliplink wc-mode helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
  '(save-place-mode t)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
@@ -648,7 +682,7 @@ background of code to whatever theme I'm using's background"
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Roboto Mono" :foundry "PfEd" :slant normal :weight normal :height 90 :width normal))))
+ ;; '(default ((t (:family "Roboto Mono" :foundry "PfEd" :slant normal :weight normal :height 90 :width normal))))
  '(font-latex-math-face ((t (:foreground "yellow"))))
  '(font-latex-script-char-face ((t (:foreground "olive drab"))))
  '(font-latex-sectioning-5-face ((t (:foreground "#ff7983"))))
@@ -696,6 +730,26 @@ background of code to whatever theme I'm using's background"
 	  (kill-buffer)))
 
 ;; Custom theme-----------------------------------------------------------------
+;; Fonts
+;; https://github.com/rougier/dotemacs/blob/61cff30bfafb04dab3c017952c8ca4a47701fc83/dotemacs.org#fonts
+(set-face-attribute 'default nil
+                    :family "Roboto Mono"
+                    :weight 'light
+                    :height 120)
+
+(set-face-attribute 'bold nil
+                    :family "Roboto Mono"
+                    :weight 'regular)
+
+(set-face-attribute 'italic nil
+                    :family "Victor Mono"
+                    :weight 'semilight
+                    :slant 'italic)
+
+(set-fontset-font t 'unicode
+                    (font-spec :name "Inconsolata Light"
+                               :size 14) nil)
+
 ;; Dracula-dark (customized)
 ;; https://draculatheme.com/emacs/
 ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
