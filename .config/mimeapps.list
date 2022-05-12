@@ -3,9 +3,11 @@ text/plain=mousepad.desktop;emacs.desktop;
 application/pdf=libreoffice-draw.desktop;chromium.desktop;org.inkscape.Inkscape.desktop;gimp.desktop;
 text/html=chromium.desktop;
 text/x-matlab=org.xfce.mousepad.desktop;
+image/vnd.djvu+multipage=org.pwmt.zathura-pdf-mupdf.desktop;
 
 [Default Applications]
 x-scheme-handler/msteams=teams.desktop
 application/pdf=zathura.desktop
 image/png=feh.desktop;
 image/jpeg=feh.desktop;
+image/vnd.djvu+multipage=org.pwmt.zathura-pdf-mupdf.desktop
