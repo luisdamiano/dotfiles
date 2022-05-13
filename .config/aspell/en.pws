@@ -1,4 +1,4 @@
-personal_ws-1.1 en 83 
+personal_ws-1.1 en 87 
 ADE
 ADRD
 ALF
@@ -41,6 +41,7 @@ dimensionality
 discretization
 discretized
 discretizing
+eigenfunctions
 endslopes
 fiGP
 functionals
@@ -50,6 +51,7 @@ hectopascal
 hectopascals
 hyperparameter
 hyperref
+integrable
 interpolant
 interpretable
 invariance
@@ -57,6 +59,7 @@ kriging
 mesopause
 metamodeling
 multimodality
+orthonormal
 overfitting
 parameterizations
 parametrization
@@ -78,6 +81,7 @@ transdisciplinary
 tropopause
 unhandled
 unimodal
+univariate
 unpolarized
 variational
 variogram
