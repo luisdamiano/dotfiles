@@ -56,7 +56,7 @@
     "show_rmd_render_command": true,
     "doc_outline_show": "all",
     "editor_theme": "Dracula (mod)",
-    "default_project_location": "~/research/fiogp",
+    "default_project_location": "~/research/strips",
     "show_hidden_files": true,
     "jobs_tab_visibility": "shown",
     "document_author": "Luis Damiano",
