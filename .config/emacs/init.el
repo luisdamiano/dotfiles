@@ -242,13 +242,13 @@
           trailing ; trailing blanks
           lines-tail ; part of line which goes beyond `whitespace-line-column'
           tabs ; all tabs
-	  ;; indentation::tab  ; 8 or more spaces at line beginning
+	      ;; indentation::tab  ; 8 or more spaces at line beginning
           ;; big-indent ; ???
           ;; space-after-tab::tab ; 8 or more SPACEs after a TAB
-	  ;; space-after-tab::space
+	      ;; space-after-tab::space
           ;; space-after-tab
           ;; space-before-tab::tab
-	  ;; space-before-tab::space
+	      ;; space-before-tab::space
           ;; space-before-tab
           )))
 
