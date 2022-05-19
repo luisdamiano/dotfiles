@@ -1,4 +1,4 @@
-personal_ws-1.1 en 87 
+personal_ws-1.1 en 88 
 ADE
 ADRD
 ALF
@@ -56,6 +56,7 @@ interpolant
 interpretable
 invariance
 kriging
+lengthscale
 mesopause
 metamodeling
 multimodality
