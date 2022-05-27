@@ -1,4 +1,4 @@
-personal_ws-1.1 en 95 
+personal_ws-1.1 en 97 
 ADE
 ADRD
 ALF
@@ -26,6 +26,7 @@ Posteriori
 RITAS
 RMSE
 SDE
+Semivariogram
 TODO
 UQ
 Vecchia
@@ -54,6 +55,7 @@ hectopascal
 hectopascals
 hyperparameter
 hyperref
+inhomogeneous
 integrable
 interpolant
 interpretable
