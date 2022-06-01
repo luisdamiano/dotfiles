@@ -1,4 +1,4 @@
-personal_ws-1.1 en 97 
+personal_ws-1.1 en 101 
 ADE
 ADRD
 ALF
@@ -33,10 +33,12 @@ Vecchia
 agronomical
 alizarin
 anisotropic
+anisotropy
 antiderivative
 aperiodic
 arctangent
 changepoint
+commensurability
 covariates
 dataset
 decorrelation
@@ -60,6 +62,7 @@ integrable
 interpolant
 interpretable
 invariance
+isotropy
 kriging
 lengthscale
 logit
@@ -78,6 +81,7 @@ probit
 radiances
 sigmoidal
 silico
+stationarity
 structureless
 subindexes
 subinterval
