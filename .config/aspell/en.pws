@@ -1,4 +1,4 @@
-personal_ws-1.1 en 102 
+personal_ws-1.1 en 104 
 ADE
 ADRD
 ALF
@@ -25,6 +25,7 @@ Postamble
 Posteriori
 RITAS
 RMSE
+Raphson
 SDE
 Semivariogram
 TODO
@@ -64,6 +65,7 @@ interpolant
 interpretable
 invariance
 isotropy
+iteratively
 kriging
 lengthscale
 logit
