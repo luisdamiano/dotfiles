@@ -660,6 +660,7 @@ background of code to whatever theme I'm using's background"
  '(inhibit-startup-screen t)
  '(package-selected-packages
    '(imenu-list poly-R ox-tiddly dap-mode lsp-treemacs lsp-ivy helm-lsp lsp-ui lsp-mode comment-dwim-2 ix\.el ix parsebib helm-bibtex ebib biblio org-cliplink wc-mode helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
+ '(safe-local-variable-values '((eval TeX-run-style-hooks "beamer")))
  '(save-place-mode t)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
@@ -682,7 +683,6 @@ background of code to whatever theme I'm using's background"
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ;; '(default ((t (:family "Roboto Mono" :foundry "PfEd" :slant normal :weight normal :height 90 :width normal))))
  '(font-latex-math-face ((t (:foreground "yellow"))))
  '(font-latex-script-char-face ((t (:foreground "olive drab"))))
  '(font-latex-sectioning-5-face ((t (:foreground "#ff7983"))))
