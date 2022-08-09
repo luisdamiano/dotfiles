@@ -4,6 +4,7 @@ application/pdf=chromium.desktop;libreoffice-draw.desktop;org.inkscape.Inkscape.
 text/html=chromium.desktop;
 text/x-matlab=org.xfce.mousepad.desktop;
 image/vnd.djvu+multipage=org.pwmt.zathura-pdf-mupdf.desktop;
+image/jpeg=org.inkscape.Inkscape.desktop;
 
 [Default Applications]
 x-scheme-handler/msteams=teams.desktop

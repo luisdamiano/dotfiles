@@ -1,5 +1,9 @@
 .include /etc/pulse/default.pa
 
+## https://wiki.archlinux.org/title/Bluetooth_headset#Setting_up_auto_connection
+### Automatically switch to newly-connected devices
+load-module module-switch-on-connect
+
 ## Create a null output device
 #load-module module-null-sink sink_name=from_obs sink_properties=device.description='From\ OBS\ monitor\ sink'
 #load-module module-virtual-source source_name=from_obs master=from_obs.monitor source_properties=device.description='From\ OBS\ source'
