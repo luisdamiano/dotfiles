@@ -1,4 +1,4 @@
-personal_ws-1.1 en 115 
+personal_ws-1.1 en 117 
 ADE
 ADRD
 ALF
@@ -65,6 +65,7 @@ hyperref
 identifiability
 inhomogeneous
 integrable
+integrand
 interpolant
 interpretable
 invariance
@@ -80,6 +81,7 @@ orthonormal
 overfitting
 parameterizations
 parametrization
+peakedness
 performant
 physicalities
 piecewise
