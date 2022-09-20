@@ -490,8 +490,8 @@ type = custom/script
 ; Show the next event and forget cache automatically every 60 minutes
 exec = i3-agenda -c ~/.config/i3-agenda/credentials.json -ttl 60
 ; left click to launch Google Calendar
-;click-left = firefox https://calendar.google.com/calendar/r/day
-click-left = xdg-open https://calendar.google.com/calendar/b/1/r/week
+; click-left = xdg-open https://calendar.google.com/calendar/b/0/r/week
+click-left = xdg-open https://outlook.office.com/calendar/view/month
 ; right click force update the cache, if for example you just added a new event
 click-right = notify-send "syncing..." && i3-agenda -c ~/.config/i3-agenda/credentials.json --update && notify-send -t 2000 "sync finished"
 interval = 60
