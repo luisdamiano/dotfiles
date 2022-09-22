@@ -73,6 +73,5 @@
     "navigate_to_build_error": false,
     "sync_files_pane_working_dir": true,
     "tab_completion": false,
-    "rmd_auto_date": true,
-    "new_proj_git_init": true
+    "rmd_auto_date": true
 }
