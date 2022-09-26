@@ -33,6 +33,7 @@ alias xpaste="xclip -selection clipboard -o"
 alias R="R --quiet --no-restore --no-save"
 alias n2="dvtm nnn nnn"
 alias rgr="rg --type=r"
+alias rgt="rg --type=tex"
 alias rgpdf="rg --type=pdf --pre ~/.local/share/rgpdf/preprocessor"
 alias latexpvc="latexmk --lualatex -pvc --interaction=nonstopmode"
 
