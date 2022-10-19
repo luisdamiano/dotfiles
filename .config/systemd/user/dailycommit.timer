@@ -1,0 +1,9 @@
+[Unit]
+Description=Daily commit for selected git repos
+
+[Timer]
+OnBootSec=15min
+OnUnitActiveSec=1d
+
+[Install]
+WantedBy=default.target

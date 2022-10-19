@@ -1,0 +1,7 @@
+[Unit]
+Description=Daily commit for selected git repos
+
+[Service]
+Type=oneshot
+IOSchedulingClass=idle
+ExecStart=%h/.local/bin/dailycommit

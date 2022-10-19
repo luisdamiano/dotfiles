@@ -1,0 +1,7 @@
+[Unit]
+Description=Daily sync for selected folders
+
+[Service]
+Type=oneshot
+IOSchedulingClass=idle
+ExecStart=%h/.local/bin/dailysync
