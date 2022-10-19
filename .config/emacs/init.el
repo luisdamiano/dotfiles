@@ -84,7 +84,7 @@
 
 ;; Removes *Completions* from buffer after you've opened a file.
 (add-hook 'minibuffer-exit-hook
-      '(lambda ()
+      (lambda ()
 	 (let ((buffer "*Completions*"))
 	   (and (get-buffer buffer)
 		(kill-buffer buffer)))))
@@ -427,7 +427,7 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 background of code to whatever theme I'm using's background"
   (when (eq exporter 'html)
     (let* ((my-pre-bg (face-background 'default))
-	   (my-pre-fg (face-foreground 'default)))
+	       (my-pre-fg (face-foreground 'default)))
       (setq
        org-html-head-extra
        (concat
