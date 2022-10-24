@@ -659,8 +659,12 @@ background of code to whatever theme I'm using's background"
  '(esup-depth 0)
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(imenu-list poly-R ox-tiddly dap-mode lsp-treemacs lsp-ivy helm-lsp lsp-ui lsp-mode comment-dwim-2 ix\.el ix parsebib helm-bibtex ebib biblio org-cliplink wc-mode helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
- '(safe-local-variable-values '((eval TeX-run-style-hooks "beamer")))
+   '(org-superstar imenu-list poly-R ox-tiddly dap-mode lsp-treemacs lsp-ivy helm-lsp lsp-ui lsp-mode comment-dwim-2 ix\.el ix parsebib helm-bibtex ebib biblio org-cliplink wc-mode helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
+ '(safe-local-variable-values
+   '((sr-speedbar-right-side)
+     (sr-speedbar-toggle . t)
+     (flycheck-mode)
+     (eval TeX-run-style-hooks "beamer")))
  '(save-place-mode t)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
@@ -687,6 +691,7 @@ background of code to whatever theme I'm using's background"
  '(font-latex-script-char-face ((t (:foreground "olive drab"))))
  '(font-latex-sectioning-5-face ((t (:foreground "#ff7983"))))
  '(font-latex-sedate-face ((t (:foreground "yellow"))))
+ '(org-level-4 ((t (:extend nil :foreground "#8be9fd" :weight normal))))
  '(show-paren-match ((t (:background "#282a36" :foreground "#def" :underline t :weight extra-bold)))))
 
 ;;  Custom functions -----------------------------------------------------------

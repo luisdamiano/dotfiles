@@ -734,6 +734,8 @@ read it before opening a new issue about your will.")
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
+;;; Custom edits
+
 (provide-theme 'dracula)
 
 ;; Local Variables:
