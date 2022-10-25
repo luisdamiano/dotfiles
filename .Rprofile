@@ -129,3 +129,16 @@ mem_used <- function(print = TRUE) {
   if (print) cat(sprintf("%g Mb", x))
   invisible(x)
 }
+
+install_packages_I_use_often <- function() {
+  reqs <- c("akima", "coda", "data.table", "devtools", "digest", "docopt",
+            "doParallel", "emmeans", "fda", "FNN", "foreach", "GGally", "ggh4x",
+            "ggplot2", "ggpubr", "hetGP", "jsonlite", "lme4", "logging",
+            "matrixcalc", "memoise", "mlegp", "mvtnorm", "pbapply", "pracma",
+            "rstan", "xtable")
+  pkgs <- installed.packages()[, 1]
+
+  for (req in reqs)
+    if (!(req %in% pkgs))
+      install.packages(req)
+}
