@@ -135,7 +135,7 @@ install_packages_I_use_often <- function() {
             "doParallel", "emmeans", "fda", "FNN", "foreach", "GGally", "ggh4x",
             "ggplot2", "ggpubr", "hetGP", "jsonlite", "lme4", "logging",
             "matrixcalc", "memoise", "mlegp", "mvtnorm", "pbapply", "pracma",
-            "rstan", "xtable")
+            "rmarkdown", "xtable")
   pkgs <- installed.packages()[, 1]
 
   for (req in reqs)
