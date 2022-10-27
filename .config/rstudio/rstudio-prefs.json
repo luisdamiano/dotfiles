@@ -31,7 +31,7 @@
     "save_workspace": "never",
     "load_workspace": false,
     "always_save_history": false,
-    "pdf_previewer": "none",
+    "pdf_previewer": "system",
     "posix_terminal_shell": "bash",
     "console_double_click_select": true,
     "full_project_path_in_window_title": true,
@@ -62,7 +62,6 @@
     "initial_working_directory": "~/research/fiogp/fiogp_sandbox",
     "show_line_numbers": false,
     "rainbow_parentheses": true,
-    "terminal_local_echo": false,
     "terminal_track_environment": false,
     "console_line_length_limit": 500,
     "shiny_viewer_type": "browser",
@@ -72,5 +71,6 @@
     "navigate_to_build_error": false,
     "sync_files_pane_working_dir": true,
     "tab_completion": false,
-    "rmd_auto_date": true
+    "rmd_auto_date": true,
+    "limit_visible_console": true
 }
