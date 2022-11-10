@@ -30,7 +30,11 @@ invisible(
   )
 )
 
-# Useful interactive-mode functions ---------------------------------------
+# Shortcuts --------------------------------------------------------------------
+pasten <- function(...) {
+  paste(..., sep = "\n")
+}
+
 ulength <- function(x) {
     length(unique(x))
 }
@@ -39,6 +43,15 @@ unrow   <- function(x) {
     nrow(unique(x))
 }
 
+RMSE   <- function(x, y) {
+  sqrt(mean((x - y)^2))
+}
+
+histfd <- function(x, ...) {
+  hist(x, breaks = "FD", ...)
+}
+
+# Useful interactive-mode functions ---------------------------------------
 posize  <- function(x = NULL) {
   if (!is.null(x))
     return(print(object.size(x), units = "auto"))
@@ -54,10 +67,6 @@ qView  <- function(x) {
   system(sprintf("xdg-open %s", f))
 }
 
-RMSE   <- function(x, y) {
-  sqrt(mean((x - y)^2))
-}
-
 plapply <- function(X, FUN, ..., cl = "allBut1") {
   cl0 <- cl
   if (cl == "allBut1")
@@ -70,8 +79,6 @@ plapply <- function(X, FUN, ..., cl = "allBut1") {
 pdf_all <- function(plotLs, ...) {
   pdf(...); plotLs; dev.off()
 }
-
-histfd <- function(x, ...) { hist(x, breaks = "FD", ...) }
 
 dbg    <- function(x = .Last.value) { str(x); data.table::address(x)}
 
@@ -141,4 +148,46 @@ install_packages_I_use_often <- function() {
   for (req in reqs)
     if (!(req %in% pkgs))
       install.packages(req)
+}
+
+# General purpose functions that should go into a package one day --------------
+#' Create a two-way table with a summary statistics
+#'
+#' @param x an object
+#' @param by a list of grouping elements, each as long as `x`
+#' @param FUN a function to compute the summary statistics which can be applied
+#' to all data subsets.
+#'
+#' @return A matrix with named dimensions
+#' @export
+#'
+#' @examples
+#' aggtable(mtcars$mpg, mtcars[, c("carb", "gear")], mean)
+aggtable <- function(x, by, FUN) {
+  addmargins(
+    xtabs(x ~ ., aggregate(x, by, FUN), subset = seq(x),
+          drop.unused.levels = TRUE),
+    FUN = FUN, quiet = TRUE)
+}
+
+#' Apply a function to all combinations of variables
+#'
+#' @param f function taking as many arguments as passed in `...`
+#' @param ...vectors, factors or a list containing these
+#'
+#' @return A list with the result returned by `f` applied to each combination
+#' of all the vectors supplied in the ... arguments
+#' @export
+#' @examples
+#' x = month.name
+#' y = 2022:2025
+#' z = 1:5
+#' myfun <- function(x1, x2, x3) { paste(x1, x2, x3) }
+#' xpply(myfun, x, y, z)
+xpply <- function(f, ...) {
+  # Use expand.grid to create a list with all combinations of ... args
+  xList <- as.list(do.call(expand.grid, list(stringsAsFactors = FALSE, ...)))
+
+  # Use Map to apply f over all combinations
+  do.call(Map, c(list(f = f), unname(xList)))
 }
