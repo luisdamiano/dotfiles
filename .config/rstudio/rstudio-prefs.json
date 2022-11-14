@@ -72,5 +72,6 @@
     "sync_files_pane_working_dir": true,
     "tab_completion": false,
     "rmd_auto_date": true,
-    "limit_visible_console": true
+    "limit_visible_console": true,
+    "source_with_echo": true
 }
