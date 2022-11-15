@@ -191,3 +191,16 @@ xpply <- function(f, ...) {
   # Use Map to apply f over all combinations
   do.call(Map, c(list(f = f), unname(xList)))
 }
+
+#' Cut a vector into quantile intervals and produce a box plot
+#'
+#' @param x a numeric vector which is to be converted to a factor by cutting
+#' @param nBins number of intervals
+#' @param ... arguments passed to boxplot
+#' @return see ?boxplot
+#' @export
+#' @examples cutplot(mtcars$mpg, 4)
+cutplot <- function(x, nBins = 10, ...) {
+  g <- cut(x, breaks = unique(quantile(x, probs = seq(0, 1, 1 / nBins))))
+  boxplot(x ~ g, at = tapply(x, g, mean), las = 3, ...)
+}
