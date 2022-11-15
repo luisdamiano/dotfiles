@@ -200,6 +200,8 @@ xpply <- function(f, ...) {
 #' @return see ?boxplot
 #' @export
 #' @examples cutplot(mtcars$mpg, 4)
+#' @examples cutplot(with(data.frame(x = 1:100), rnorm(100, x, x)))
+#' @examples cutplot(rexp(100, .3))
 cutplot <- function(x, nBins = 10, ...) {
   g <- cut(x, breaks = unique(quantile(x, probs = seq(0, 1, 1 / nBins))))
   boxplot(x ~ g, at = tapply(x, g, mean), las = 3, ...)
