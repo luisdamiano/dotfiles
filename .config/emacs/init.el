@@ -409,6 +409,11 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 ;; https://emacs.stackexchange.com/a/70229
 (setq org-adapt-indentation t)
 
+;; set workflow states
+;; https://orgmode.org/manual/Workflow-states.html
+(setq org-todo-keywords
+      '((sequence "TODO" "WIP" "REVWIEW" "|" "DONE" "CANC")))
+
 ;; export html when hitting F9
 (add-hook 'org-mode-hook
 	  (lambda() (local-set-key (kbd "<f9>") 'org-html-export-to-html)))
