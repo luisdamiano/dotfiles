@@ -504,4 +504,4 @@ format-font = 1 ; https://github.com/polybar/polybar/wiki/Formatting
 type = custom/script
 exec = ~/.config/polybar/gmail/launch.py --prefix '✉' --color '#be5046' --nosound
 tail = true
-click-left = xdg-open https://mail.google.com/mail/u/1/#inbox
+click-left = xdg-open https://mail.google.com/mail/u/0/#inbox
