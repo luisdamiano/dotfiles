@@ -422,6 +422,14 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 (use-package org-cliplink
   :bind ("C-x p" . org-cliplink))
 
+(add-hook 'org-mode-hook
+          (lambda() (org-babel-do-load-languages
+                     'org-babel-load-languages
+                     '((emacs-lisp . nil)
+                       (R . t)
+                       (shell . t)
+                       ))))
+
 ;; support code block syntax highlighting in html files
 (use-package htmlize)
 
