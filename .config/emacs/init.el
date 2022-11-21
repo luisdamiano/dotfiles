@@ -279,7 +279,7 @@
 
 ;; Add column line -------------------------------------------------------------
 ;; https://github.com/rougier/dotemacs/blob/61cff30bfafb04dab3c017952c8ca4a47701fc83/dotemacs.org#typography
-(setq-default fill-column 80                          ; Default line width 
+(setq-default fill-column 80                          ; Default line width
               sentence-end-double-space nil           ; Use a single space after dots
               bidi-paragraph-direction 'left-to-right ; Faster
               truncate-string-ellipsis "…")           ; Nicer ellipsis
@@ -335,14 +335,18 @@
   :config
   (setq hl-todo-exclude-modes '(list org-mode))
   (setq hl-todo-keyword-faces
-	'(("todo.*"   . "#FF0000")
-	  ("fixme.*"  . "#FF0000")
-	  ("TODO"   . "#FF0000")
-	  ("FIXME"  . "#FF0000")
-	  ("DEBUG"  . "#A020F0")
-	  ("GOTCHA" . "#FF4500")
-	  ("STUB"   . "#1E90FF"))
-	)
+	    '(("todo.*"  . "#FF0000")
+	      ("fixme.*" . "#FF0000")
+	      ("TODO"    . "#FF0000")
+	      ("FIXME"   . "#FF0000")
+          ("GOTCHA"  . "#3DB7E9")
+	      ("DEBUG"   . "#3DB7E9")
+          ("INFO"    . "#3DB7E9")
+	      ("STUB"    . "#F0E442")
+          ("FILLME"  . "#F0E442")
+          ("WARN"    . "#F0E442")
+          )
+	    )
   )
 
 ;; Rainbow delimiters ----------------------------------------------------------
