@@ -477,7 +477,7 @@ background of code to whatever theme I'm using's background"
 
 ;; Bibliographic references ----------------------------------------------------
 ;; bib file management
-(use-package ebib)
+;; (use-package ebib) ;; commented out for performance (1.082sec)
 
 ;; Retrieve from public data bases
 (use-package biblio)
