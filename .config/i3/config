@@ -242,7 +242,7 @@ mode --pango_markup "$mode_launcher" {
 
     # apps
     bindsym grave $EC "$HOME/research/kbase/_index.org"         ; mode "default"
-    bindsym 1 $E chromium                                       ; mode "default"
+    bindsym 1 $E firefox                                        ; mode "default"
     bindsym 2 $E rstudio-daily-bin                              ; mode "default"
 
     bindsym r $T -e "R" -d "/tmp"                               ; mode "default"
