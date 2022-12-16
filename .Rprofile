@@ -31,8 +31,12 @@ invisible(
 )
 
 # Shortcuts --------------------------------------------------------------------
+grepv  <- function(...) {
+    grep(..., value = TRUE)
+}
+
 pasten <- function(...) {
-  paste(..., sep = "\n")
+    paste(..., sep = "\n")
 }
 
 ulength <- function(x) {
