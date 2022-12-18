@@ -1,9 +1,10 @@
 ;; Set up MELPA bleeding-edge repository ---------------------------------------
 ;; OB; Set up MELPA bleeding-edge repository
 ;; https://melpa.org/#/getting-started
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
+(eval-when-compile
+  (require 'package)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (package-initialize))
 
 ;; Set up use-package ----------------------------------------------------------
 ;; Set up use-package
@@ -11,12 +12,13 @@
 ;; This is only needed once, near the top of the file
 (eval-when-compile
   ;; Following line is not needed if use-package.el is in ~/.emacs.d
-    (add-to-list 'load-path "<path where use-package is installed>")
+    ;; (add-to-list 'load-path "<path where use-package is installed>")
       (require 'use-package))
-;; Ensure that all packages are installed globally
+;; Ensure that all packages are installed globally and will have lazy loading
 ;; https://github.com/jwiegley/use-package/blob/a7422fb8ab1baee19adb2717b5b47b9c3812a84c/README.md#package-installation
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
+(setq use-package-always-defer t)
 
 ;; Update packages automatically -----------------------------------------------
 ;; (use-package auto-package-update
@@ -676,7 +678,7 @@ background of code to whatever theme I'm using's background"
  '(esup-depth 0)
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(wrap-region org-superstar imenu-list poly-R ox-tiddly dap-mode lsp-treemacs lsp-ivy helm-lsp lsp-ui lsp-mode comment-dwim-2 ix\.el ix parsebib helm-bibtex ebib biblio org-cliplink wc-mode helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
+   '(easy-mmode wrap-region org-superstar imenu-list poly-R ox-tiddly dap-mode lsp-treemacs lsp-ivy helm-lsp lsp-ui lsp-mode comment-dwim-2 ix\.el ix parsebib helm-bibtex ebib biblio org-cliplink wc-mode helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
  '(safe-local-variable-values
    '((sr-speedbar-right-side)
      (sr-speedbar-toggle . t)
