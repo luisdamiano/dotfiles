@@ -55,6 +55,17 @@ histfd <- function(x, ...) {
   hist(x, breaks = "FD", ...)
 }
 
+# System call functions ---------------------------------------------------
+cmd_pdfcrop   <- function(fn) {
+  system(sprintf("pdfcrop %s %s", fn, fn))
+}
+
+cmd_viewcsv  <- function(x) {
+  f <- tempfile(fileext = ".csv")
+  data.table::fwrite(x, file = f)
+  system(sprintf("xdg-open %s", f))
+}
+
 # Useful interactive-mode functions ---------------------------------------
 posize  <- function(x = NULL) {
   if (!is.null(x))
@@ -63,12 +74,6 @@ posize  <- function(x = NULL) {
   osizes <- sapply(ls(.GlobalEnv), function(li) { object.size(get(li)) })
 
   round(osizes[rev(order(unlist(osizes)))] / 1000000, 1)
-}
-
-qView  <- function(x) {
-  f <- tempfile(fileext = ".csv")
-  data.table::fwrite(x, file = f)
-  system(sprintf("xdg-open %s", f))
 }
 
 plapply <- function(X, FUN, ..., cl = "allBut1") {
