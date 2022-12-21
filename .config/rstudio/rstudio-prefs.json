@@ -55,7 +55,7 @@
     "show_rmd_render_command": true,
     "doc_outline_show": "all",
     "editor_theme": "Dracula (mod)",
-    "default_project_location": "~/research",
+    "default_project_location": "~/research/fiogp",
     "show_hidden_files": true,
     "jobs_tab_visibility": "shown",
     "document_author": "Luis Damiano",
@@ -72,5 +72,6 @@
     "sync_files_pane_working_dir": true,
     "tab_completion": false,
     "rmd_auto_date": true,
-    "limit_visible_console": true
+    "limit_visible_console": true,
+    "new_proj_git_init": true
 }
