@@ -18,7 +18,7 @@
 ;; https://github.com/jwiegley/use-package/blob/a7422fb8ab1baee19adb2717b5b47b9c3812a84c/README.md#package-installation
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
-(setq use-package-always-defer t
+(setq use-package-always-defer t)
 
 ;; Update packages automatically -----------------------------------------------
 ;; (use-package auto-package-update
