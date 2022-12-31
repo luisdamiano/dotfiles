@@ -879,3 +879,4 @@ made unique when necessary."
 (add-hook 'org-mode-hook
 	  'unpackaged/org-export-html-with-useful-ids-mode)
 (put 'downcase-region 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)

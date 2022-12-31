@@ -50,7 +50,7 @@ alias pacmanr='sudo pacman -Rscn'
 alias pacmanq='pacman -Qte'
 
 ## AUR
-alias makepkgsi='makepkg --clean --cleanbuild --install --log --syncdeps --rmdeps'
+alias makepkgsi='makepkg --clean --cleanbuild --install --log --syncdeps --rmdeps && git clean -fdx'
 
 # Dot file tracking
 ## https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
