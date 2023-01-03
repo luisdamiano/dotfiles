@@ -1,4 +1,4 @@
-personal_ws-1.1 en 134 
+personal_ws-1.1 en 136 
 ADE
 ADRD
 ALF
@@ -40,6 +40,7 @@ Semivariogram
 TODO
 UQ
 Vecchia
+WEPP
 agronomical
 alizarin
 anisotropic
@@ -69,6 +70,7 @@ generalizable
 geolocation
 hectopascal
 hectopascals
+hillslope
 hyperparameter
 hyperref
 identifiability
