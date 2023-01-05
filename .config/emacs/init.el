@@ -880,3 +880,4 @@ made unique when necessary."
 	  'unpackaged/org-export-html-with-useful-ids-mode)
 (put 'downcase-region 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
+(put 'upcase-region 'disabled nil)
