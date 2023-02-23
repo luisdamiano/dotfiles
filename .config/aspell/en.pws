@@ -1,4 +1,4 @@
-personal_ws-1.1 en 146 
+personal_ws-1.1 en 148 
 ADE
 ADRD
 ALF
@@ -67,6 +67,7 @@ discretized
 discretizing
 eigenfunctions
 endslopes
+expectably
 extratropical
 fiGP
 functionals
@@ -109,6 +110,7 @@ piecewise
 pointwise
 pre
 predictionwise
+premultiplied
 preprint
 priori
 probit
