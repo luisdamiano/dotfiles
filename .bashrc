@@ -28,6 +28,7 @@ alias wdmesg="dmesg -wH"
 # # https://stackoverflow.com/a/4208191/2860744
 alias xcopy="xclip -selection c"
 alias xpaste="xclip -selection clipboard -o"
+alias pwdx="pwd | xclip -selection c"
 
 ## Applications
 alias R="R --quiet --no-restore --no-save"
