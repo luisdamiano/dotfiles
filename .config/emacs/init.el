@@ -655,6 +655,68 @@ background of code to whatever theme I'm using's background"
     (magit)
     )
 
+; Stan -------------------------------------------------------------------------
+;; Right from https://github.com/stan-dev/stan-mode/tree/150bbbe5fd3ad2b5a3dbfba9d291e66eeea1a581#configuration
+;; Uncomment the line below if not required elsewhere.
+;; (require 'use-package)
+
+;;; stan-mode.el
+(use-package stan-mode
+  :mode ("\\.stan\\'" . stan-mode)
+  :hook (stan-mode . stan-mode-setup)
+  ;;
+  :config
+  ;; The officially recommended offset is 2.
+  (setq stan-indentation-offset 2))
+
+;;; company-stan.el
+(use-package company-stan
+  :hook (stan-mode . company-stan-setup)
+  ;;
+  :config
+  ;; Whether to use fuzzy matching in `company-stan'
+  (setq company-stan-fuzzy nil))
+
+;;; eldoc-stan.el
+(use-package eldoc-stan
+  :hook (stan-mode . eldoc-stan-setup)
+  ;;
+  :config
+  ;; No configuration options as of now.
+  )
+
+;;; flycheck-stan.el
+(use-package flycheck-stan
+  ;; Add a hook to setup `flycheck-stan' upon `stan-mode' entry
+  :hook ((stan-mode . flycheck-stan-stanc2-setup)
+         (stan-mode . flycheck-stan-stanc3-setup))
+  :config
+  ;; A string containing the name or the path of the stanc2 executable
+  ;; If nil, defaults to `stanc2'
+  (setq flycheck-stanc-executable nil)
+  ;; A string containing the name or the path of the stanc2 executable
+  ;; If nil, defaults to `stanc3'
+  (setq flycheck-stanc3-executable nil))
+
+;;; stan-snippets.el
+(use-package stan-snippets
+  :hook (stan-mode . stan-snippets-initialize)
+  ;;
+  :config
+  ;; No configuration options as of now.
+  )
+
+;;; ac-stan.el (Not on MELPA; Need manual installation)
+(use-package ac-stan
+  :load-path "path-to-your-directory/ac-stan/"
+  ;; Delete the line below if using.
+  :disabled t
+  :hook (stan-mode . stan-ac-mode-setup)
+  ;;
+  :config
+  ;; No configuration options as of now.
+  )
+
 ;;Customizations by Custom -----------------------------------------------------
 ;; Other customizations
 (custom-set-variables
@@ -678,7 +740,7 @@ background of code to whatever theme I'm using's background"
  '(esup-depth 0)
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(easy-mmode wrap-region org-superstar imenu-list poly-R ox-tiddly dap-mode lsp-treemacs lsp-ivy helm-lsp lsp-ui lsp-mode comment-dwim-2 ix\.el ix parsebib helm-bibtex ebib biblio org-cliplink wc-mode helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
+   '(idle-highlight-mode easy-mmode wrap-region org-superstar imenu-list poly-R ox-tiddly dap-mode lsp-treemacs lsp-ivy helm-lsp lsp-ui lsp-mode comment-dwim-2 ix\.el ix parsebib helm-bibtex ebib biblio org-cliplink wc-mode helpful latex-preview-pane wgrep pdf-tools sr-speedbar key-chord ox-twbs ox htmlize markdown-preview-mode ess xclip workgroups2 which-key use-package treemacs smartparens rainbow-mode poly-markdown magit iedit hl-todo helm gitignore-mode flycheck expand-region csv-mode company backup-each-save auctex anzu))
  '(safe-local-variable-values
    '((sr-speedbar-right-side)
      (sr-speedbar-toggle . t)
