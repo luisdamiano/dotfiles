@@ -25,8 +25,8 @@
         ],
         "hiddenTabSet": [],
         "console_left_on_top": false,
-        "console_right_on_top": false,
-        "additional_source_columns": 1
+        "console_right_on_top": true,
+        "additional_source_columns": 0
     },
     "save_workspace": "never",
     "load_workspace": false,
