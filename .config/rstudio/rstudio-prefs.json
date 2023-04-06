@@ -73,5 +73,6 @@
     "tab_completion": false,
     "rmd_auto_date": true,
     "limit_visible_console": true,
-    "new_proj_git_init": true
+    "new_proj_git_init": true,
+    "source_with_echo": true
 }
